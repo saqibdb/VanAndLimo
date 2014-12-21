@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Van and Limo</title>
+	<link rel="icon" 
+      type="image/png" 
+      href="favicon.ico" />
+    <!-- Yeti - Bootstrap 3.x custome theme -->
+    <link href="assets/css/yeti.min.css" rel="stylesheet" type="text/css">
+    <!-- Customer styles -->
+    <link href="assets/css/valstyle.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+
+    <link href="assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+
+    <!-- CSS media query on a link element -->
+    <link rel="stylesheet" media="screen and (min-width: 1025px)" href="assets/css/valscreen.css" />
+    <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width: 1024px)" href="assets/css/valtablet.css" />
+    <link rel="stylesheet" media="screen and (max-width: 480px)" href="assets/css/valmobile.css" />
+
+    <!-- jQuery 1.11.1 -->
+    <script src="assets/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Custom script -->
+    <script src="assets/js/valscript.js" type="text/javascript"></script>
+
+    <script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
+	
+  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+
+<script type="text/javascript" src="assets/js/calendar.js"></script>
+
+<script type="text/javascript" src="step.js"></script>
+
+<link rel="stylesheet" type="text/css" href="assets/js/jquery.ptTimeSelect.css" />
+<script type="text/javascript" src="assets/js/jquery.ptTimeSelect.js"></script>
+
+
+<link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.min.css" />
+<!-- 
+	OR if you want to use the calendar in a right-to-left website
+	just use the other CSS file instead and don't forget to switch g_jsDatePickDirectionality variable to "rtl"!
+	
+	<link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.css" />
+-->
+<script type="text/javascript" src="jsDatePick.min.1.3.js"></script>
+
+	<link href="assets/slider-css/kendo.common.min" rel="stylesheet" type="text/css">	
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/kendo.all.min.js"></script>
+	<link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.1008/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.1008/js/kendo.all.min.js"></script>
+
+
+
+
+
+
+			<script
+			src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA1d2mdRshqr-UPV28Z0C2Dlj2J0DeXe30&sensor=false">
+			</script>
+
+			
+
+    
+
+</head>
+<body>
+<!--[if lte IE 8]>
+<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Navigation -->
+    <header id="topbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                
+                 <img id="logo_main" src="assets/img/icons/icone.png" alt="HTML5 Icon" >
+				 
+            </div>
+            <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
+
+                
+
+            </nav><!--/.navbar-collapse -->
+        </div>
+    </header>
+
+    <article class="main-container" data-spy="scroll" data-target="#topbar" data-offset="80">
+
+        <section id="features" style="margin-top:50px;">
+            <div class="container">
+                <div class="row">
+                    
+					    
+					<h3>Select Vehicle</h3>
+						
+									<div class="col-sm-12">
+											
+ 
+
+										<img id="SelectedCar" src="assets/img/vehicles/executive.png" alt="Smiley face">
+										<div id="car-slider-background">
+										<input id="sliderCar" class="CarSlider" />
+										</div>
+										
+											</div>
+											<br/>
+											
+											<div class="col-sm-12">	
+											<div class="col-sm-6">
+										
+										
+										<div id="sliderDynamic">
+										<br/>
+										<br/>
+										<h4>Total Passengers: </h4>
+										<div class="well ">
+										
+										<div id="sliderDynamicPerson">
+										</div>
+										</div>
+										</div>
+										
+										<h4>Select luggage: </h4>
+										<div id="rbtn">
+											<p class="block"><h5><input type="radio" name="radgroup" id="stadardBag"  value="A" onclick="stadardBagEnable()"> Standard Bag (22 inch)</h5></p>
+											<p class="block"><h5><input type="radio" name="radgroup" id="LargeBag" value="B" onclick="LargeBagEnable()"> Large Bag (36-28 inch)</h5></p>
+											<p class="block"><h5><input type="radio" name="radgroup" id="XLBag" value="C" onclick="XLBagEnable()"> XL Bag (30-32 inch)</h5></p>
+											<p class="block"><h5><input type="radio" name="radgroup" id="GolfBag" value="D" onclick="GolfBagEnable()"> Golf Bag (42-54 inch)</h5></p>
+										</div>
+										<h4>Total Bags: </h4>
+										<div class="well" >
+										
+										<div id="sliderDynamicBags">
+										<input id="sliderBags" class="BagsSlider" />
+										</div>
+										</div>
+										
+										
+										</div>
+										<br/>
+										<br/>
+										<div class="col-sm-6">
+										<div id="questions">
+
+										<h4>On Demand/Optional Services   </h4>
+										
+										
+										
+														<table class="table table-striped table-hover ">
+														  
+															<tr>
+															  <td></td>
+															  <td><br/> <p class="text-primary">Curb Side Pick up </p> </td>
+															  <td></td>
+															  <td><div class="checkbox">
+																  <label>
+																	<input type="checkbox"checked> 
+																  </label>
+																</div></td>
+															</tr>
+															<tr>
+															  <td></td>
+															  <td><br/><p class="text-primary"> Meet N Greet service*1 </p></td>
+															  <td><div class="form-group">
+																		  
+																		  </td>
+															  <td><div class="checkbox">
+																					  <label>
+																						<input type="checkbox"> 
+																					  </label>
+																					</div></td>
+															</tr>
+															
+															  <td></td>
+															  <td><br/><p class="text-primary">Extra Stops*2</p></td>
+															  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="Kind of Stop">
+																		</div></td>
+															  <td><div class="checkbox">
+																						  <label>
+																							<input type="checkbox"> 
+																						  </label>
+																						</div></td>
+															</tr>
+															<tr>
+																  <td></td>
+																  <td><br/><p class="text-primary">Pets / Serice Animals*3</p> </td>
+																  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel?">
+																		</div></td>
+																  <td><div class="checkbox">
+																							  <label>
+																								<input type="checkbox"> 
+																							  </label>
+																							</div></td>
+																</tr>
+																<tr>
+															  <td></td>
+															  <td><br/><p class="text-primary">Extra Large Items*4 </p></td>
+															  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="e.g.,Ski Boards,Tv Box.etc ?">
+																		</div></td>
+															  <td> <div class="checkbox">
+																		  <label>
+																			<input type="checkbox"> 
+																		</div></td>
+																															</tr>
+															 <td></td>
+															  <td><br/><p class="text-primary">Carseat/booster Seat*5</p></td>
+															  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="Ages of Kids?">
+																		</div></td>
+															  <td> <div class="checkbox">
+																		  <label>
+																			<input type="checkbox"> 
+																		</div></td>
+																															</tr>
+															
+															
+															
+															</table>
+										
+										
+										
+										</div>
+										
+										</div>
+										
+										</div>	
+											
+											
+        <div class="col-sm-4" style="margin-top:50px;" >
+          <div class="panel panel-primary">
+						  <div class="panel-heading">
+							<h3 class="panel-title">Trip Information</h3>
+						  </div>
+						  <div class="panel-body">
+						   <div id="DateAndTime" class="DateAndTime">
+						
+							<p class="inpTxt">Pickup Time  : <input id="datepickerOnly" value="10/10/2011" /></p>
+							<p class="inpTxt">Pickup Time  : <input id="timepickerOnly" value="10:00 AM" /></p>
+
+							</div>
+							<div id="AddressDiv" class="AddressDiv">
+						
+						<h4>Address Type</h4>
+						
+							<p class="inpTxt"><input id="checkboxPublic" type="checkbox" onclick="handleClickPublic(this);"/> Public place/LandMark </p>
+							<p class="inpTxt"><input id="checkboxResidence" type="checkbox" onclick="handleClickResidence(this);"/> Residence </p>
+							<p class="inpTxt"><input id="checkboxBusiness" type="checkbox" onclick="handleClickBusiness(this);"/> Business Adress </p>
+							
+						
+							<div class="form-group">
+  
+
+						<p id="inpBusinessp" class="inpTxt">  <input id="inpBusiness" type="text" /></p>
+						<p id="inpIntersectionp" class="inpTxt">Major Intersection  <input id="inpIntersection" type="text" /></p>
+						<p id="inpStreetp" class="inpTxt">Street Address  <input id="inpStreet" type="text" /></p>
+						<p id="inpCityp" class="inpTxt">City or Zip  <input id="inpCity" type="text" /></p>
+						
+							</div>
+					</div>
+					
+					
+						<h4>Drop Off</h4>
+						
+						  <div class="drop-down-manu">
+							<select class="form-control" id="select">
+							  <option value="Baltimore Airport">BWI-Baltimore Airport</option>
+								<option value="Ronald Reagan Washington National Airport">DCA-Reagan National Airport</option>
+								  <option value="Washington dulles Airport">IAD-Washington Dulles Airport</option>
+								  <option value="Philadelphia Airport">PHL-Philadelphia Airport - PA</option>
+								  <option value="Harrisburg Airport">MDT-Harrisburg Airport -PA </option>
+								  <option value="Newark Liberty Airport">EWR-Newark Liberty Airport - NJ</option>
+								  <option value="John F.Kennedy Airport">JFK-John F. Kennedy Airport - NY</option>
+								  <option value="Harrisburg Airport">MDT-Harrisburg Airport - PA</option>
+								  <option value="Martin state Airport">MTN-Martin State Airport <br/>Carroll County Regional Airport</option>
+								  <option value="Carroll county regional Airport">Carroll county regional Airport</option>
+								  <option value="Frederick Minicipal Airport">FDK-Frederick Minicipal Airport</option>
+								  <option value="Tripton Airport-Fort Meade">FME-Tripton Airport-Fort Meade</option>
+
+							</select>
+							
+							</div>
+							
+						
+						
+						
+					<!--<input type="button" value="Show Route on Map" onclick="calcRoute();">-->
+					
+							
+							
+							
+					  </div>
+					</div>
+        </div>
+					 <div class="col-sm-8" style="margin-top:50px;" >
+					<div id="GoogleMAps" class="GoogleMAps">
+						
+							<div id="googleMap" style="width:100%;height:500px;"></div>
+							
+					</div>													
+																		
+					</div>				 
+						  
+									
+
+					
+ 
+          
+					
+					<div class="col-lg-6">
+					
+						<div id="CAlculatedFare" class="CAlculatedFare">
+					<br/>
+					<br/>
+					<h3>Fare and Distance</h3>
+					<div class="well well-sm">
+					<p id="FromText">From = nil</p>
+					<p id="ToText">To = nil</p>
+					<p id="DistanceText">Distance = nil</p>
+					<p id="TimeText">Time = nil</p>	
+					<p id="FareText">Fare = nil</p>
+					</div>
+					
+					<input type="button" class="btn btn-primary" value="Calculate Fare" onclick="calcFare();">
+					</div>
+					
+					</div>
+
+    					<div class="col-lg-6">
+					
+			
+					</div>
+					
+				
+									
+					
+					
+					
+
+    <script>
+	var imageAddress;
+	var personMax;
+	var personMin;
+	
+	var selectedCar="hybrid";
+	var selectedPerson="2";
+	var selectedBagType="standardBag";
+	
+                function sliderOnSlide(e) {	
+                    if(e.value==1){
+					imageAddress = "assets/img/vehicles/sedan.png";
+						$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(3,1);
+						selectedBagType="standardBag";
+						document.getElementById("stadardBag").checked=true;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=true;
+						
+						
+						selectedCar="hybrid";
+						createBags();
+					}
+					else if(e.value==2){
+					imageAddress = "assets/img/vehicles/executive.png";
+					$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(4,1);
+						selectedBagType="standardBag";
+						document.getElementById("stadardBag").checked=true;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=true;
+						
+						selectedCar="ExecutiveSedan";
+						createBags();
+					
+					}
+					else if(e.value==3){//mini van
+					imageAddress = "assets/img/vehicles/luxury.png";
+					$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(7,1);
+						document.getElementById("stadardBag").disabled=false;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=false;
+						
+						
+						selectedCar="MiniVan";
+						createBags();
+					}
+					else if(e.value==4){
+					imageAddress = "assets/img/vehicles/suv.png";
+					$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(7,1);
+						document.getElementById("stadardBag").disabled=false;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=false;
+						
+						selectedCar="ExecutiveSUV";
+						createBags();
+						
+					}
+					else if(e.value==5){
+					imageAddress = "assets/img/vehicles/taxi.png";
+										
+						$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(10,1);
+				
+						document.getElementById("stadardBag").disabled=false;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=false;
+						
+						
+						selectedCar="ClubVan";
+						createBags();
+				
+					
+					}
+					else if(e.value==6){
+					imageAddress = "assets/img/vehicles/sedan.png";
+					$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(14,1);
+						document.getElementById("stadardBag").disabled=false;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=false;
+						
+						selectedCar="MercedesVan";
+						createBags();
+						
+					}
+					
+					else if(e.value==7){//limo
+					imageAddress = "assets/img/vehicles/sedan.png";
+					$("#sliderPerson").data("kendoSlider").destroy();
+						$("#sliderDynamicPerson").empty();                
+						createIt(10,1);
+						document.getElementById("stadardBag").disabled=false;
+						document.getElementById("LargeBag").disabled=false;
+						document.getElementById("XLBag").disabled=false;
+						document.getElementById("GolfBag").disabled=false;
+						
+						
+						selectedCar="Limo";
+						createBags();
+					}
+					document.getElementById("SelectedCar").src=imageAddress;
+                }
+
+                
+				function createIt(max,min)
+					{
+								   $("#sliderDynamicPerson").append("<input id='sliderPerson' class='PersonSlider' value='1' />");
+									
+									var slider = $("#sliderPerson").kendoSlider({ 
+
+										change: PersonSliderOnSlide,
+										slide: PersonSliderOnSlide,
+										min: min,
+										max: max,
+									   smallStep: 1,
+									   largeStep: 1,
+									   value: 2
+								   }).data("kendoSlider");
+						
+					}
+					function createBags()
+					{
+					
+					
+														    
+
+							$("#sliderBags").data("kendoSlider").destroy();
+								$("#sliderDynamicBags").empty();
+								   $("#sliderDynamicBags").append("<input id='sliderBags' class='BagsSlider' value='1' />");
+									
+									var min;
+									var max;
+									
+									if(selectedCar=="hybrid"){
+									    if(selectedBagType=="standardBag"){
+											min=0;
+											max=3;
+			
+										}
+										else if(selectedBagType=="LargeBag"){
+											min=0;
+											max=3;
+			
+										}
+										else if(selectedBagType=="XLBag"){
+											min=0;
+											max=1;
+			
+										}
+
+
+									
+									}
+									else if(selectedCar=="ExecutiveSedan"){
+									    if(selectedBagType=="standardBag"){
+											min=0;
+											max=4;
+										}
+										else if(selectedBagType=="LargeBag"){
+											min=0;
+											max=2;
+			
+										}
+										else if(selectedBagType=="XLBag"){
+											min=0;
+											max=2;
+			
+										}
+
+									
+									
+									}
+									else if(selectedCar=="ExecutiveSUV"){
+									    if(selectedBagType=="standardBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=6;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=7;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=8;
+												
+											}
+											else if(selectedPerson=="4"){
+												min=0;
+												max=9;	
+											}
+											else{
+												min=0;
+												max=10;
+												
+											}
+										}
+										else if(selectedBagType=="LargeBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=5;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=6;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=7;
+												
+											}
+											else{
+												min=0;
+												max=8;
+												
+											}
+			
+										}
+										else if(selectedBagType=="XLBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=4;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=5;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=5;
+												
+											}
+											else{
+												min=0;
+												max=6;
+												
+											}
+			
+										}
+										else if(selectedBagType=="GolfBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=2;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=2;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=3;
+												
+											}
+											else{
+												min=0;
+												max=4;
+												
+											}
+			
+										}
+
+									
+									
+									}
+									else if(selectedCar=="ClubVan"){
+									    if(selectedBagType=="standardBag"){								
+												min=0;
+												max=14;													
+										}
+										else if(selectedBagType=="LargeBag"){								
+												min=0;
+												max=10;													
+										}
+										else if(selectedBagType=="XLBag"){								
+												min=0;
+												max=10;													
+										}	
+										else if(selectedBagType=="GolfBag"){								
+												min=0;
+												max=10;													
+										}
+									}	
+									else if(selectedCar=="MercedesVan"){
+									    if(selectedBagType=="standardBag"){								
+												min=0;
+												max=14;													
+										}
+										else if(selectedBagType=="LargeBag"){								
+												min=0;
+												max=10;													
+										}
+										else if(selectedBagType=="XLBag"){								
+												min=0;
+												max=8;													
+										}	
+										else if(selectedBagType=="GolfBag"){								
+												min=0;
+												max=8;													
+										}
+									}
+									else if(selectedCar=="MiniVan"){
+									    if(selectedBagType=="standardBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=6;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=7;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=8;
+												
+											}
+											else if(selectedPerson=="4"){
+												min=0;
+												max=9;	
+											}
+											else{
+												min=0;
+												max=10;
+												
+											}
+										}
+										else if(selectedBagType=="LargeBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=5;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=6;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=7;
+												
+											}
+											else{
+												min=0;
+												max=8;
+												
+											}
+			
+										}
+										else if(selectedBagType=="XLBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=4;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=5;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=5;
+												
+											}
+											else{
+												min=0;
+												max=6;
+												
+											}
+			
+										}
+										else if(selectedBagType=="GolfBag"){
+											if(selectedPerson=="7"){
+												min=0;
+												max=2;
+												
+											}
+											else if(selectedPerson=="6"){
+												min=0;
+												max=2;
+												
+											}
+											else if(selectedPerson=="5"){
+												min=0;
+												max=3;
+												
+											}
+											else{
+												min=0;
+												max=4;
+												
+											}
+			
+										}
+									}
+									else if(selectedCar=="Limo"){
+									    if(selectedBagType=="standardBag"){								
+												min=0;
+												max=4;													
+										}
+										else if(selectedBagType=="LargeBag"){								
+												min=0;
+												max=3;													
+										}
+										else if(selectedBagType=="XLBag"){								
+												min=0;
+												max=2;													
+										}	
+										else if(selectedBagType=="GolfBag"){								
+												min=0;
+												max=1;													
+										}
+									}
+									var slider = $("#sliderBags").kendoSlider({                 
+										min: min,
+										max: max,
+									   smallStep: 1,
+									   largeStep: 1,
+									   value: 2
+								   }).data("kendoSlider");
+						
+					}
+					function stadardBagEnable()
+					{
+						selectedBagType="standardBag";
+						createBags();
+					}
+					function LargeBagEnable()
+					{
+						selectedBagType="LargeBag";
+						createBags();
+					}
+					function XLBagEnable()
+					{
+						selectedBagType="XLBag";
+						createBags();
+					}
+					function GolfBagEnable()
+					{
+						selectedBagType="GolfBag";
+						createBags();
+					}
+					
+					function PersonSliderOnSlide(e)
+					{
+					
+						selectedPerson=""+e.value+"";
+						createBags();
+					}
+					
+					
+                $(document).ready(function() {
+                   var slider =  $("#sliderCar").kendoSlider({
+                        change: sliderOnSlide,
+                     
+                        min: 1,
+                        max: 7,
+
+                        smallStep: 1,
+                        largeStep: 1,
+                        value: 2,
+						tooltip: {
+						enabled: false
+							}
+                    });
+					
+					
+					var steps = {};
+					steps[0] = 'Hybrid Car';
+					steps[1] = 'Executive Sedan';
+					steps[2] = 'Mini van';
+					steps[3] = 'Executive SUV';
+					steps[4] = 'Club van';
+					steps[5] = 'Mercedes van';	
+					steps[6] = 'Stretch Limo';
+
+					var sliderItems = slider.siblings(".k-slider-items");
+
+					$.each(steps, function(index, value){
+						var item = sliderItems.find("li:eq("+ (index) +")");
+						item.attr("title", value);
+						item.find("span").text(value);
+					});
+					
+					 $("#datetimepicker").kendoDateTimePicker({
+                    value:new Date()
+                });
+					 $("#sliderBags").kendoSlider({
+                        
+                        min: 1,
+                        max: 7,
+                        smallStep: 1,
+                        largeStep: 1,
+                        value: 1
+                    });
+					
+					
+					
+			
+				createIt(1,9);
+
+                   
+                });
+				
+				
+				 
+				
+            </script>
+
+            <style>         
+                .CarSlider {
+            width: 100%;
+			font-size: 150%;
+			font-weight: bold;
+       				 }   
+		.PersonSlider {
+            width: 450px;
+       				 }   	
+		.BagsSlider {
+            width: 450px;
+       				 } 
+	#SelectedCar
+
+			{
+				width:350px;
+				 display: block;
+					margin-left: auto;
+					margin-right: auto;
+				}	
+			
+				
+            </style>
+
+
+			<br/>
+			<br/>
+					
+					
+				
+					
+					
+
+					
+					
+					
+					
+                </div>
+            </div>
+        </section>
+
+			<br/>
+			<br/>
+			<br/>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <hr>
+                    <div class="col-xs-12">
+                        <p class="pull-left">&copy; 2014 - Van and Limo</p>
+                        <div class="vr"></div>
+                        <p class="pull-right">Powered by: <a href="http://wizesole.com" title="Wize Solutions Inc.">WizeSol</a></p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </article>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+html, body{
+    max-width: 100%;
+    min-height: 100%;
+}
+
+#topbar + article {
+    margin-top: 40px;
+}
+
+article.main-container {
+    overflow:auto;
+    position: relative;
+    height:100%;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+footer{
+    padding: 1% 0 5% 0;
+    background: #97BD36;
+    color:#fff;
+    box-shadow: inset 0px 3px 15px rgba(0,0,0,0.3);
+}
+footer a{
+    color: #fff;
+    padding:5px;
+}
+footer a:hover{
+    background:rgba(255,255,255,0.7);
+}
+
+.controls{
+    display: inline-block;
+}
+
+.home-icons {
+    padding: 25px;
+    text-align: center;
+}
+
+.home-icons li {
+    width:250px;
+    height:250px;
+    display: inline-block;
+    list-style:none;
+    overflow:hidden;
+    padding:0;
+    cursor:pointer;
+    margin:25px;
+    position: relative;
+    text-align: center;
+    border: 1px solid #bababa;
+    border-radius: 15px;
+}
+
+.home-icons li .title-box {
+    display: table;
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index: 4;
+}
+
+.home-icons li h3 {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2.2em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #fff;
+    position: relative;
+    top:0;
+
+    transition: top .2s ease-in-out;
+}
+
+.home-icons li .overlay {
+    height: 100%;
+    width: 100%;
+    top:0;
+    background: rgba(7,7,22,.7);
+    position: absolute;
+
+    transition: top .2s ease-in-out;
+}
+
+.home-icons li:hover .overlay,
+.home-icons li:hover h3{
+    top:-295px;
+}
+
+div.cars {
+    width:100%;
+    height:360px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#car_slider {
+    height: 120px;
+}
+
+#topbar {
+    background: rgba(151,189,54,.6);
+    transition: background .2s ease-in-out;
+}
+
+#topbar:hover {
+    background: rgba(151,189,54,.8);
+}
+
+#topbar ul li.active > a,
+#topbar ul li > a:hover,
+#topbar ul li > a:focus {
+    background: rgba(107,161,41,.8);
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    .home-icons li {
+        width:200px;
+        height:200px;
+        font-size:.85em;
+        margin:15px;
+    }
+}
+
+@media screen and (min-width: 681px) and (max-width: 800px) {
+
+    .home-icons li {
+        width:165px;
+        height:165px;
+        font-size:.6em;
+        margin:15px;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 680px) {
+    .home-icons {
+        padding:0;
+        margin:0;
+        text-align:center;
+    }
+    .home-icons li {
+        width:155px;
+        height:155px;
+        font-size:.6em;
+        margin:9px;
+    }
+}
+
+@media screen and (min-width: 413px) and (max-width: 550px) {
+    .home-icons {
+        padding:0;
+        margin:0;
+        text-align:center;
+    }
+    .home-icons li {
+        width:125px;
+        height:125px;
+        font-size:.5em;
+        margin:5px;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .home-icons {
+        padding:0;
+        margin:0;
+        text-align:center;
+    }
+    .home-icons li {
+        width:85px;
+        height:85px;
+        font-size:.5em;
+        margin:8px;
+    }
+}
