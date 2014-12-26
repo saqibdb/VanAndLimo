@@ -29,12 +29,21 @@ $(document).ready(function(){
 		
 				
 					Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
-
+					
+ 					var currentUser = Parse.User.current();
+					
+					if (currentUser) {
+						// do stuff with the user
+						alert("User is "+currentUser.id);
+					} else {
+						// show the signup or login page
+						window.location.href = 'signin.html';
+					}
 				
 				var dataSet = [];
 				var Bookings = Parse.Object.extend("Bookings");
 				var query = new Parse.Query(Bookings);
-				query.equalTo("UserID", "hbFl16IE6D");
+				query.equalTo("UserID", currentUser.id);
 				query.find({
 				  success: function(results) {
 					alert("Successfully retrieved " + results.length + " Bookings.");

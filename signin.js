@@ -53,7 +53,9 @@ function LoginCheck(){
 					}
 					else{
 						alert("Hooray! Let "+user.get("HomeNumber")+" use");// Do stuff after successful login.
-						window.location.href = 'index.html';
+						
+						var currentUser = Parse.User.current();
+						window.location.href = 'Dashboard.html';
 					}
 					
 				  },
