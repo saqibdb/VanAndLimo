@@ -131,7 +131,33 @@ function calcFare() {
 			to=document.getElementById("select").value;
 			document.getElementById("FromText").innerHTML= "From = "+from;
 			document.getElementById("ToText").innerHTML= "To = "+to;
+		var RateFactorMile=0;
+		if(selectedCar=="hybrid"){
+			RateFactorMile=2.5;
+		}
+		else if(selectedCar=="ExecutiveSedan"){
+			RateFactorMile=2.75;
+		}
+		else if(selectedCar=="ExecutiveSUV"){
+			RateFactorMile=3.25;
+		}
+		else if(selectedCar=="ClubVan"){
+			RateFactorMile=2.75;
+		}
+		else if(selectedCar=="MercedesVan"){
+			RateFactorMile=2.75;
+		}
+		else if(selectedCar=="MiniVan"){
+			RateFactorMile=3;
+		}
+		else if(selectedCar=="Limo"){
+			RateFactorMile=2.75;
+		}
 		
+		
+		
+		
+
 		
 			
 		//calcDistance("550 Light St, Baltimore",from);
@@ -143,9 +169,237 @@ function calcFare() {
 							 document.getElementById("DistanceText").innerHTML= "Distance = "+distaneAll3+" Miles";	
 							 document.getElementById("TimeText").innerHTML= "Time = "+time+ " mins";
 								calcDistance(to,"550 Light St, Baltimore",0, function(r3) {
-								var fareTotal= (r1*0.25)+(r2*2.75)+(r3*0.25)+(time*0.25);
-								fareTotal=(fareTotal).toFixed(2);
-										document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";	
+								
+										calcDistance(to,from,0, function(r4) {
+											var Allowed_Travel_Dist= ((r2+r4)/2)*3;
+											if( Allowed_Travel_Dist >= (r1+r2+r3)){
+												AllDistance=Allowed_Travel_Dist;
+
+											}
+											else{
+												AllDistance=(r1+r2+r3);
+												//var fareTotal= (r1*0.25)+(r2*2.75)+(r3*0.25)+(time*0.25);
+
+											}
+											var fareTotal=(AllDistance*RateFactorMile)+(time*0.4);
+											fareTotal=(fareTotal).toFixed(2);
+											alert(fareTotal);
+											document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";	
+											
+											
+											
+											
+											
+											if(selectedCar=="hybrid"){
+												
+												document.getElementById("HybridFare").innerHTML= fareTotal+" $";
+												document.getElementById("Hybrid").className = "success";
+												document.getElementById("Hybrid").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+
+
+											}
+											else if(selectedCar=="ExecutiveSedan"){
+												document.getElementById("ExecutiveSedanFare").innerHTML= fareTotal+" $";
+												document.getElementById("ExecutiveSedan").className = "success";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "bold";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+											}
+											else if(selectedCar=="ExecutiveSUV"){
+												document.getElementById("ExecutiveSUVFare").innerHTML= fareTotal+" $";
+												document.getElementById("ExecutiveSUV").className = "success";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+											}
+											else if(selectedCar=="ClubVan"){
+												document.getElementById("ClubVanFare").innerHTML= fareTotal+" $";
+												document.getElementById("ClubVan").className = "success";
+												document.getElementById("ClubVan").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+											}
+											else if(selectedCar=="MercedesVan"){
+												document.getElementById("MercedesVanFare").innerHTML= fareTotal+" $";
+												document.getElementById("MercedesVan").className = "success";
+												document.getElementById("MercedesVan").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+											}
+											else if(selectedCar=="MiniVan"){
+												document.getElementById("MiniVanFare").innerHTML= fareTotal+" $";
+												document.getElementById("MiniVan").className = "success";
+												document.getElementById("MiniVan").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+												
+												document.getElementById("StretchLimoFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("StretchLimo").className = "nil";
+												document.getElementById("StretchLimo").style.fontWeight = "normal";
+											}
+											else if(selectedCar=="Limo"){
+												document.getElementById("StretchLimoFare").innerHTML= fareTotal+" $";
+												document.getElementById("StretchLimo").className = "success";
+												document.getElementById("StretchLimo").style.fontWeight = "bold";
+												
+												document.getElementById("ExecutiveSedanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSedan").className = "nil";
+												document.getElementById("ExecutiveSedan").style.fontWeight = "normal";
+												
+												document.getElementById("ExecutiveSUVFare").innerHTML= ((AllDistance*3.25)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ExecutiveSUV").className = "nil";
+												document.getElementById("ExecutiveSUV").style.fontWeight = "normal";
+												
+												document.getElementById("ClubVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("ClubVan").className = "nil";
+												document.getElementById("ClubVan").style.fontWeight = "normal";
+												
+												document.getElementById("MercedesVanFare").innerHTML= ((AllDistance*2.75)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MercedesVan").className = "nil";
+												document.getElementById("MercedesVan").style.fontWeight = "normal";
+												
+												document.getElementById("MiniVanFare").innerHTML= ((AllDistance*3)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("MiniVan").className = "nil";
+												document.getElementById("MiniVan").style.fontWeight = "normal";
+												
+												document.getElementById("HybridFare").innerHTML= ((AllDistance*2.5)+(time*0.4)).toFixed(2)+" $";
+												document.getElementById("Hybrid").className = "nil";
+												document.getElementById("Hybrid").style.fontWeight = "normal";
+											}
+
+										});
+								
+								
 									});
 								});
 				});

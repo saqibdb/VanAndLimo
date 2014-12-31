@@ -34,7 +34,7 @@ $(document).ready(function(){
 					
 					if (currentUser) {
 						// do stuff with the user
-						alert("User is "+currentUser.id);
+						
 					} else {
 						// show the signup or login page
 						window.location.href = 'signin.html';
