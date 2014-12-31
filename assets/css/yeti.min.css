@@ -5188,8 +5188,9 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 
     .navbar-nav>li>a
     {
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 35px;
+        padding-bottom: 28px;
+		font-size:20px;
     }
 
     .navbar-nav.navbar-right:last-child
@@ -8535,4 +8536,35 @@ input[type=radio   ]:not(old){
 
   /* Webkit browsers*/
   -webkit-transform: scale(1.7);
+
+}
+
+.container_new
+{
+					
+					background-color: #fff;
+					background-color: rgba(255,255,255,0.95);
+					margin-left: auto;
+					margin-right: auto;
+					width:80%;
+					padding:10px;	
+					box-shadow:0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.container_new_index
+{
+					
+					background-color: #fff;
+					background-color: rgba(255,255,255,0.8);
+					margin-left: auto;
+					margin-right: auto;
+					width:80%;
+					padding:10px;	
+					box-shadow:0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+li
+{
+    list-style-type: none;
+	
 }

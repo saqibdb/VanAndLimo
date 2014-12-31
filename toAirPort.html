@@ -89,11 +89,14 @@
             <div class="navbar-header">
                 
                  <img id="logo_main" src="assets/img/icons/icone.png" alt="HTML5 Icon" >
-				 
+			
             </div>
             <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
-
-                
+					
+                  <ul class="nav navbar-nav navbar-right">
+					<li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  </ul>
 
             </nav><!--/.navbar-collapse -->
         </div>
@@ -102,17 +105,20 @@
     <article class="main-container" data-spy="scroll" data-target="#topbar" data-offset="80">
 
         <section id="features" style="margin-top:50px;">
-            <div class="container">
+            <div class="container_new">
                 <div class="row">
                     
 					    
-					<h3>Select Vehicle</h3>
+					
 						
 									<div class="col-sm-12">
 											
  
 
-										<img id="SelectedCar" src="assets/img/vehicles/executive.png" alt="Smiley face">
+										<img id="SelectedCar" src="assets/img/vehicles/executive.jpg" alt="Smiley face">
+										
+										<h2>Select Vehicle</h2>
+										<br/>
 										<div id="car-slider-background">
 										<input id="sliderCar" class="CarSlider" />
 										</div>
@@ -127,7 +133,7 @@
 										<div id="sliderDynamic">
 										<br/>
 										<br/>
-										<h4>Total Passengers: </h4>
+										<h2>Total Passengers: </h2>
 										<div class="well ">
 										
 										<div id="sliderDynamicPerson">
@@ -135,14 +141,14 @@
 										</div>
 										</div>
 										
-										<h4>Select luggage: </h4>
+										<h2>Select luggage: </h2>
 										<div id="rbtn">
 											<p class="block"><h5><input type="radio" name="radgroup" id="stadardBag"  value="A" onclick="stadardBagEnable()"> Standard Bag (22 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="LargeBag" value="B" onclick="LargeBagEnable()"> Large Bag (36-28 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="XLBag" value="C" onclick="XLBagEnable()"> XL Bag (30-32 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="GolfBag" value="D" onclick="GolfBagEnable()"> Golf Bag (42-54 inch)</h5></p>
 										</div>
-										<h4>Total Bags: </h4>
+										<h2>Total Bags: </h2>
 										<div class="well" >
 										
 										<div id="sliderDynamicBags">
@@ -157,82 +163,84 @@
 										<div class="col-sm-6">
 										<div id="questions">
 
-										<h4>On Demand/Optional Services   </h4>
+										<h2>On Demand/Optional Services   </h2>
 										
 										
 										
 														<table class="table table-striped table-hover ">
 														  
 															<tr>
-															  <td></td>
-															  <td><br/> <p class="text-primary">Curb Side Pick up </p> </td>
-															  <td></td>
 															  <td><div class="checkbox">
 																  <label>
 																	<input type="checkbox"checked> 
 																  </label>
 																</div></td>
+															  <td><br/><h4> Curb Side Pick up </h4> </td>
+															  
+															 <td></td>
+															 <td></td>
+															 
 															</tr>
 															<tr>
-															  <td></td>
-															  <td><br/><p class="text-primary"> Meet N Greet service*1 </p></td>
-															  <td><div class="form-group">
-																		  
-																		  </td>
 															  <td><div class="checkbox">
 																					  <label>
 																						<input type="checkbox"> 
 																					  </label>
 																					</div></td>
-															</tr>
-															
-															  <td></td>
-															  <td><br/><p class="text-primary">Extra Stops*2</p></td>
+															  <td><br/> <h4>Meet N Greet service*1 </h4></td>
 															  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Kind of Stop">
-																		</div></td>
+																		  </td>
+															  <td></td>
+															</tr>
+															
 															  <td><div class="checkbox">
 																						  <label>
 																							<input type="checkbox"> 
 																						  </label>
 																						</div></td>
+															  <td><br/><h4>Extra Stops*2</h4></td>
+															  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="Kind of Stop">
+																		</div></td>
+															  <td></td>
 															</tr>
 															<tr>
-																  <td></td>
-																  <td><br/><p class="text-primary">Pets / Serice Animals*3</p> </td>
-																  <td><div class="form-group">
-																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel?">
-																		</div></td>
 																  <td><div class="checkbox">
 																							  <label>
 																								<input type="checkbox"> 
 																							  </label>
 																							</div></td>
+																  <td><br/><h4>Pets / Serice Animals*3</h4> </td>
+																  <td><div class="form-group">
+																		  
+																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel?">
+																		</div></td>
+																  <td></td>
 																</tr>
 																<tr>
-															  <td></td>
-															  <td><br/><p class="text-primary">Extra Large Items*4 </p></td>
+															  <td><div class="checkbox">
+																		  <label>
+																			<input type="checkbox"> 
+																		</div></td>
+															  <td><br/><h4>Extra Large Items*4 </h4></td>
 															  <td><div class="form-group">
 																		  
 																		  <input class="form-control" id="focusedInput" type="text" value="e.g.,Ski Boards,Tv Box.etc ?">
 																		</div></td>
-															  <td> <div class="checkbox">
+															  <td> </td>
+																															</tr>
+															 <td><div class="checkbox">
 																		  <label>
 																			<input type="checkbox"> 
 																		</div></td>
-																															</tr>
-															 <td></td>
-															  <td><br/><p class="text-primary">Carseat/booster Seat*5</p></td>
+															  <td><br/><h4>Carseat/booster Seat*5</h4></td>
 															  <td><div class="form-group">
 																		  
 																		  <input class="form-control" id="focusedInput" type="text" value="Ages of Kids?">
 																		</div></td>
-															  <td> <div class="checkbox">
-																		  <label>
-																			<input type="checkbox"> 
-																		</div></td>
+															  <td> </td>
 																															</tr>
 															
 															
@@ -333,7 +341,7 @@
 						<div id="CAlculatedFare" class="CAlculatedFare">
 					<br/>
 					<br/>
-					<h3>Fare and Distance</h3>
+					<h2>Fare and Distance</h2>
 					<div class="well well-sm">
 					<p id="FromText">From = nil</p>
 					<p id="ToText">To = nil</p>
@@ -418,7 +426,7 @@
 	
                 function sliderOnSlide(e) {	
                     if(e.value==1){
-					imageAddress = "assets/img/vehicles/sedan.png";
+					imageAddress = "assets/img/vehicles/sedan.jpg";
 						$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(3,1);
@@ -433,7 +441,7 @@
 						createBags();
 					}
 					else if(e.value==2){
-					imageAddress = "assets/img/vehicles/executive.png";
+					imageAddress = "assets/img/vehicles/executive.jpg";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(4,1);
@@ -448,7 +456,7 @@
 					
 					}
 					else if(e.value==3){//mini van
-					imageAddress = "assets/img/vehicles/luxury.png";
+					imageAddress = "assets/img/vehicles/minivan_new.jpg";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(7,1);
@@ -462,7 +470,7 @@
 						createBags();
 					}
 					else if(e.value==4){
-					imageAddress = "assets/img/vehicles/suv.png";
+					imageAddress = "assets/img/vehicles/suv.jpg";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(7,1);
@@ -476,7 +484,7 @@
 						
 					}
 					else if(e.value==5){
-					imageAddress = "assets/img/vehicles/taxi.png";
+					imageAddress = "assets/img/vehicles/clubvan.jpg";
 										
 						$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
@@ -494,7 +502,7 @@
 					
 					}
 					else if(e.value==6){
-					imageAddress = "assets/img/vehicles/sedan.png";
+					imageAddress = "assets/img/vehicles/mercedes-van.jpg";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(14,1);
@@ -509,7 +517,7 @@
 					}
 					
 					else if(e.value==7){//limo
-					imageAddress = "assets/img/vehicles/sedan.png";
+					imageAddress = "assets/img/vehicles/limo.jpg";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(10,1);
@@ -943,15 +951,17 @@
 
             <style>         
                 .CarSlider {
-            width: 100%;
+            width: 95%;
 			font-size: 150%;
 			font-weight: bold;
+			margin-left: auto;
+			margin-right: auto;
        				 }   
 		.PersonSlider {
-            width: 450px;
+            width: 100%;
        				 }   	
 		.BagsSlider {
-            width: 450px;
+            width: 100%;
        				 } 
 	#SelectedCar
 
@@ -961,7 +971,12 @@
 					margin-left: auto;
 					margin-right: auto;
 				}	
-			
+			body  {
+    background-image: url('assets/img/bg/BWI-Plane-Landing.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	
+	}
 				
             </style>
 
@@ -980,26 +995,73 @@
 					
                 </div>
             </div>
-        </section>
+			
+		 </section>
 
-			<br/>
-			<br/>
-			<br/>
-        <footer>
+			
+			
+
+    </article>
+
+
+          <footer>
             <div class="container">
                 <div class="row">
-                    <hr>
+				
+			
                     <div class="col-xs-12">
-                        <p class="pull-left">&copy; 2014 - Van and Limo</p>
-                        <div class="vr"></div>
-                        <p class="pull-right">Powered by: <a href="http://wizesole.com" title="Wize Solutions Inc.">WizeSol</a></p>
-                        <div class="clearfix"></div>
+					
+							<div class="col-lg-3" >
+					<h3>legal Information</h3>
+						<p>PSC Carrier No. 3923</p>
+						 
+					</div>
+						<div class="col-lg-3" >
+							<h3> Service Area </h3>
+								
+								<li>Baltimore City area</li>
+								<li>Baltimore County </li>
+								<li>State of Maryland</li> 
+								<li>Washington DC </li>
+								<li>Washington Dulles Airport -IAD</li> 
+								<li>Reagan National Airport - DCA</li>
+								<li>New York Airport - JFK</li>
+								<li>Philadelphia Airport - PHL</li>
+								
+	    </div>
+		  <div class="col-lg-3">
+	
+	    </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h3>Contact Us:</h3>
+				<p>Customer Hotline at (443) 505-1196</p>
+				<p><a href="" title="Contact Page!"><i class="fa fa-envelope"></i> Contact Page</a></p>
+            <h3>Follow Us on:</h3>
+
+			</div>
+			
+			</div>	
+						
                     </div>
+					
+                   
+                    <div class="col-xs-12">
+					 <hr>
+                        <p class="pull-left">&copy; 2014 - Van and Limo</p>
+                        
+                        <p class="pull-right">Powered by: <a href="http://wizesole.com" title="Wize Solutions Inc.">WizeSol</a></p>
+                       
+                    </div>
+             
+                        
+                    
+					
                 </div>
             </div>
         </footer>
 
-    </article>
+       
 
 </body>
 </html>
