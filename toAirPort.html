@@ -11,7 +11,7 @@
     <!-- Customer styles -->
     <link href="assets/css/valstyle.css" rel="stylesheet" type="text/css">
     <link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
 
     <!-- CSS media query on a link element -->
@@ -202,7 +202,7 @@
 															  <td><br/><h4>Extra Stops*2</h4></td>
 															  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Kind of Stop">
+																		  <input class="form-control" id="focusedInput" type="text" value="Extra Stop Subject To Additional Fee">
 																		</div></td>
 															  <td></td>
 															</tr>
@@ -215,7 +215,7 @@
 																  <td><br/><h4>Pets / Serice Animals*3</h4> </td>
 																  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel?">
+																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel,Animal Size">
 																		</div></td>
 																  <td></td>
 																</tr>
@@ -227,7 +227,7 @@
 															  <td><br/><h4>Extra Large Items*4 </h4></td>
 															  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="e.g.,Ski Boards,Tv Box.etc ?">
+																		  <input class="form-control" id="focusedInput" type="text" value="Ski Boards,Tv Box.etc">
 																		</div></td>
 															  <td> </td>
 																															</tr>
@@ -334,10 +334,10 @@
 
 					
  
-          
+          <div class="col-sm-12">
 					
 					<div class="col-lg-6">
-					
+					<input type="button" class="btn btn-primary" value="Calculate Fare" onclick="calcFare();">
 						<div id="CAlculatedFare" class="CAlculatedFare">
 					<br/>
 					<br/>
@@ -350,7 +350,7 @@
 					<p id="FareText">Fare = nil</p>
 					</div>
 					
-					<input type="button" class="btn btn-primary" value="Calculate Fare" onclick="calcFare();">
+					
 					</div>
 					
 					</div>
@@ -411,7 +411,7 @@
 					
 				
 									
-					
+					</div>
 					
 					
 
@@ -973,10 +973,19 @@
 				}	
 			body  {
     background-image: url('assets/img/bg/BWI-Plane-Landing.jpg');
-    background-repeat: no-repeat;
+     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	
 	
 	}
+	
+	
+
 				
             </style>
 
@@ -1038,7 +1047,12 @@
 				<p>Customer Hotline at (443) 505-1196</p>
 				<p><a href="" title="Contact Page!"><i class="fa fa-envelope"></i> Contact Page</a></p>
             <h3>Follow Us on:</h3>
-
+				
+                                          <a target="_blank" href="#google" title="Sign in with Google" rel="nofollow"><i class="fa fa-google-plus-square fa-5x"></i></a>
+                                          <a target="_blank" href="#twitter" title="Sign in with Twitter" rel="nofollow"><i class="fa fa-twitter-square fa-5x"></i></a>
+                                          <a target="_blank" href="#facebook" title="Sign in with Facebook" rel="nofollow"><i class="fa fa-facebook-square fa-5x"></i></a>
+                                   
+                                        
 			</div>
 			
 			</div>	
