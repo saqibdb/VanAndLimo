@@ -13,11 +13,20 @@
     <link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 
     <link href="assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	
+	
     <!-- CSS media query on a link element -->
     <link rel="stylesheet" media="screen and (min-width: 1025px)" href="assets/css/valscreen.css" />
     <link rel="stylesheet" media="screen and (min-width: 481px) and (max-width: 1024px)" href="assets/css/valtablet.css" />
     <link rel="stylesheet" media="screen and (max-width: 480px)" href="assets/css/valmobile.css" />
+
 
     <!-- jQuery 1.11.1 -->
     <script src="assets/js/jquery-1.11.1.min.js" type="text/javascript"></script>
@@ -86,188 +95,189 @@
                  <img id="logo_main" src="assets/img/icons/icone.png" alt="HTML5 Icon" >
 				 
             </div>
-            <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
-
-                
+           <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
+					
+                  <ul class="nav navbar-nav navbar-right">
+					<li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  </ul>
 
             </nav><!--/.navbar-collapse -->
         </div>
-    </header>
-    <article class="main-container" data-spy="scroll" data-target="#topbar" data-offset="80">
-
-        <section id="features">
-            <div class="container">
-                <div class="row">
-								<div class="col-md-8 ">
-									<div class="login-panel panel panel-default">
-									
-									<div class="panel-heading">
-											<h3 class="panel-title">New Account Regestration</h3>
-										</div>
-									<div class="panel-body">
-					    <form class="form-horizontal">
-							  <fieldset>
-								
-								
-								
-								
-								<div class="form-group">
-								  <label for="inputEmail" class="col-lg-2 control-label">* Email : </label>
-								  <div class="col-lg-10">
-								  
-									<input type="text" class="form-control" id="inputEmail">
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="inputPassword" class="col-lg-2 control-label">* Password : </label>
-								  <div class="col-lg-10">
-									<input type="password" class="form-control" id="inputPassword">
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="inputPassword" id="ConfirmTxt" class="col-lg-2 control-label">* Confirm Password : </label>
-								  <div class="col-lg-10">
-									<input type="password" class="form-control" id="inputPassword2" onkeyup=PassMatch();>
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label class="col-lg-2 control-label">* Account Type : </label>
-								  <div class="col-lg-10">
-									<div class="radio">
-									  <label>
-									  Personal
-									  </label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" onclick=radioClick();>
-										<label>
-										Business 
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked=true onclick=radioClick();>
-									  </label>
-									</div>
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="inputCompanyName" id="CompanyTxt" class="col-lg-2 control-label">Company Name : </label>
-								  <div class="col-lg-10">
-									<input type="text" class="form-control" id="inputCompanyName">
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="inputLastName" class="col-lg-2 control-label">* Last Name : </label>
-								  <div class="col-lg-10">
-									<input type="text" class="form-control" id="inputLastName">
-								  </div>
-								</div>
-								<div class="form-group">
-								  <label for="inputFirstName" class="col-lg-2 control-label">* First Name : </label>
-								  <div class="col-lg-10">
-									<input type="text" class="form-control" id="inputFirstName">
-								  </div>
-								</div>
-								<br/>
-								<br/>
-								<br/>
-								<div class="form-group">
-								  <label for="inputMobile" class="col-lg-2 control-label">* Mobile Number : </label>
-								  <div class="col-lg-10">
-									<input type="text" class="form-control" id="inputMobile" placeholder="Format : 1443-505-1196 XXX">
-								  </div>
-								</div>
-								
-								<div class="form-group">
-								  <label for="inputHomePh" id="HomePhTxt" class="col-lg-2 control-label">* Business Phone : </label>
-								  <div class="col-lg-10">
-									<input type="text" class="form-control" id="inputHomePh" placeholder="Format : 1443-505-1196 XXX">
-								  </div>
-								</div>
-								
-								
-								
-								
-							  </fieldset>
-							</form>
-     
-	 
-							
-	 
-							<p >Yes, I have read and I accept VanAndLimo Terms of use and Privacy statement.</p>
-							
-							<p id="EmailProceedingTxt"></p>	  
-
-        					<a class="btn btn-lg btn-success btn-block" onclick="SignUp()">I agree - Continue</a>
-
-					<!-- <div class="container">
-							<div class="row">
-								<div class="col-md-4 col-md-offset-4">
-									<div class="login-panel panel panel-default">
-										<div class="panel-heading">
-											<h3 class="panel-title">Please Sign Up</h3>
-										</div>
-										<div class="panel-body">
-											<form role="form">
-												<fieldset>
-													<div class="form-group">
-														<label for="inputEmail" class="col-lg-2 control-label">Email</label>
-														<input id="usernametxt" class="form-control" placeholder="User-Name" name="text" type="text" autofocus>
-													</div>
-													<div class="form-group">
-														<input id="passwordtxt" class="form-control" placeholder="Password" name="password" type="password" value="">
-													</div>
-													<div class="form-group">
-														<input id="passwordtxt2" class="form-control" placeholder="Re-Enter Password" name="password" type="password" value="">
-													</div>
-													<div class="form-group">
-														<input id="emailtxt" class="form-control" placeholder="Email" name="Email" type="Email">
-													</div>
-													<div class="form-group">
-														<input id="Phonetxt" class="form-control" placeholder="Phone #" name="Phone #" type="text">
-													</div>
-													
-													
-													
-													<a class="btn btn-lg btn-success btn-block" onclick="SignUp()">SignUp</a>
-													<br/>
-													
-													<label id="notificationTxt">
-															 
-													</label>
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>-->
-									
-
-					
- 
-				
-								</div>
-					
-
-						</div>
-					</div>
-            </div>
-        </section>
-
-			<br/>
-			<br/>
-			<br/>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <hr>
-                    <div class="col-xs-12">
-                        <p class="pull-left">&copy; 2014 - Van and Limo</p>
-                        <div class="vr"></div>
-                        <p class="pull-right">Powered by: <a href="http://wizesole.com" title="Wize Solutions Inc.">WizeSol</a></p>
-                        <div class="clearfix"></div>
-                    </div>
+		</header>
+   
+		<div id="contentContainer" class="container" style="margin-top:80px;">
+  
+    <div class="row">
+        <div id="realContent" class="col-xs-12">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+                  <h1>Sign Up</h1>
                 </div>
             </div>
-        </footer>
+            <div class="row">
+                <section class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+                    <div class="well well-lg">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12"><h3>Social Sign In</h3></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"><p>Let's be honest, you need another account like a hole in the head!</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <ul id="social-sign-in" class="inline-block list-unstyled">
+                                          <li><a target="_blank" href="#google" title="Sign in with Google" rel="nofollow"><i class="fa fa-google-plus-square fa-5x"></i></a></li>
+                                          <li><a target="_blank" href="#twitter" title="Sign in with Twitter" rel="nofollow"><i class="fa fa-twitter-square fa-5x"></i></a></li>
+                                          <li><a target="_blank" href="#facebook" title="Sign in with Facebook" rel="nofollow"><i class="fa fa-facebook-square fa-5x"></i></a></li>
+                                          <li><a target="_blank" href="#linkedin" title="Sign in with LinkedIn" rel="nofollow"><i class="icon-linkedin-sign icon-5x"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12"><h3>Account Registration</h3></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <form id="signupForm" method="POST" action="#hahaha" accept-charset="UTF-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                <input id="inputEmail" class="form-control input" placeholder="Email" required="required" maxlength="100" type="text" name="email" value="">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                <input id="inputPassword" class="form-control input" placeholder="Password" required="required" maxlength="60" type="password" name="password">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                <input id="inputPassword2" class="form-control input" placeholder="Confirm Password" required="required" maxlength="60" type="password" name="password_confirmation" onkeyup=PassMatch();>
+                                            </div>
+											
+											<div class="input-group">
+                                                <p>Account Type</p>
+
+											
+											<label class="radio-inline">
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" onclick=radioClick();> Personal
+															</label>
+                                            <label class="radio-inline">
+											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked=true onclick=radioClick();>Business 
+															</label>
+									</div>
+											<div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input id="inputLastName" class="form-control input" placeholder="Last Name" required="required" maxlength="100" type="text" name="email" value="">
+                                            </div>
+											<div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input id="inputFirstName" class="form-control input" placeholder="First Name" required="required" maxlength="100" type="text" name="email" value="">
+                                            </div>
+											<div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></span>
+                                                <input id="inputFirstName" class="form-control input" placeholder="Mobile # " required="required" maxlength="100" type="text" name="email" value="">
+                                            </div>
+											<div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-phone-square "></i></span>
+                                                <input id="inputFirstName" class="form-control input" placeholder="Business Phone # " required="required" maxlength="100" type="text" name="email" value="">
+                                            </div>
+                                                <div class="form-group">
+                                                <button type="submit" id="btn-signup" class="btn btn-block btn-primary btn-lg">Sign Up</button>
+                                            </div>
+                                        </form>
+                                        <div class="form-group">
+                                            <div class="topCushion">Already a member? <a href="#login">Login</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <p>By clicking on "Sign Up", you agree to read and accept VanAndLimo  <a href="#terms-of-service" target="_blank">Terms of Service</a> and the <a href="#privacy" target="_blank">Privacy Policy</a>.</p>
+                                        </div>
+                                    </div><!-- end of column -->
+                                </div><!-- end of row -->
+                            </div><!-- end of column 2 -->
+                        </div><!-- end of well row -->
+                    </div><!-- end of well -->
+                </section>
+            </div><!-- end of row -->
+        </div>
+    </div>  
+</div>
+			<script>							
+							$(document).ready(function () {
+					$('form input').tooltip({
+					  placement: 'top',
+					  trigger: 'focus',
+					  title: function (){
+						return $(this).attr('placeholder');
+					  }
+					});
+				});										
+					
+ </script>
+		
+		 
 
     </article>
 
+	
+	<footer>
+            <div class="container">
+                <div class="row">
+				
+			
+                    <div class="col-xs-12">
+					
+							<div class="col-lg-3" >
+					<h3>legal Information</h3>
+						<p>PSC Carrier No. 3923</p>
+						 
+					</div>
+						<div class="col-lg-3" >
+							<h3> Service Area </h3>
+								
+								<li>Baltimore City area</li>
+								<li>Baltimore County </li>
+								<li>State of Maryland</li> 
+								<li>Washington DC </li>
+								<li>Washington Dulles Airport -IAD</li> 
+								<li>Reagan National Airport - DCA</li>
+								<li>New York Airport - JFK</li>
+								<li>Philadelphia Airport - PHL</li>
+								
+	    </div>
+		  <div class="col-lg-3">
+	
+	    </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h3>Contact Us:</h3>
+				<p>Customer Hotline at (443) 505-1196</p>
+				<p><a href="" title="Contact Page!"><i class="fa fa-envelope"></i> Contact Page</a></p>
+            <h3>Follow Us on:</h3>
+
+			</div>
+			
+			</div>	
+						
+                    </div>
+					
+                   
+                    <div class="col-xs-12">
+					 <hr>
+                        <p class="pull-left">&copy; 2014 - Van and Limo</p>
+                        
+                        <p class="pull-right">Powered by: <a href="http://wizesole.com" title="Wize Solutions Inc.">WizeSol</a></p>
+                       
+                    </div>
+             
+                        
+                    
+					
+                </div>
+            </div>
+        </footer>
+	
 </body>
 </html>
