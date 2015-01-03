@@ -70,26 +70,27 @@ function LoginCheck(){
 
 }
 function SignUp(){
-				PassMatch();
+				//PassMatch();
+				
 			if(HasError==0){
 				var email=document.getElementById("inputEmail").value;
 				var password=document.getElementById("inputPassword").value;
-				
+
 				
 				//var accountType=document.getElementById("optionsRadios").value;//change needed here after the net
-				var username=document.getElementById("inputCompanyName").value;
+				//var username=document.getElementById("inputCompanyName").value;
 
 				var LastName=document.getElementById("inputLastName").value;
 				var FirstName=document.getElementById("inputFirstName").value;
 				var MobileNumber=document.getElementById("inputMobile").value;
-				var HomeNumber=document.getElementById("inputHomePh").value;
+				var HomeNumber=document.getElementById("BusinessPhInp").value;
+								
 
-				
 				var user = new Parse.User();
 					user.set("email", email);
 					user.set("password", password);	
-					user.set("accountType", accountType);
-					user.set("username", username);
+					//user.set("accountType", accountType);
+					//user.set("username", email);
 					user.set("LastName", LastName);
 					user.set("FirstName", FirstName);
 					user.set("MobileNumber", MobileNumber);
@@ -97,12 +98,14 @@ function SignUp(){
 					 
 					user.signUp(null, {
 					  success: function(user) {	
-						document.getElementById("EmailProceedingTxt").innerHTML= "* Verification Email Sent. Please Confirm Email and Login.";
+					  						alert("* Verification Email Sent. Please Confirm Email and Login.");
+
+						//document.getElementById("EmailProceedingTxt").innerHTML= "* Verification Email Sent. Please Confirm Email and Login.";
 					  },
 					  error: function(user, error) {
 						// Show the error message somewhere and let the user try again.
 						alert("Error: " + error.code + " " + error.message);
-						document.getElementById("EmailProceedingTxt").innerHTML= "* Error = "+error.message;
+						//document.getElementById("EmailProceedingTxt").innerHTML= "* Error = "+error.message;
 					  }
 					});
 				}
@@ -113,15 +116,34 @@ function SignUp(){
 
 }
 function radioClick(){
+
 	if(!document.getElementById("optionsRadios1").checked){
-		document.getElementById("CompanyTxt").innerHTML= "Company Name : ";
-		document.getElementById("HomePhTxt").innerHTML= "* Business Phone : ";
+	var Ext = document.createElement("input");
+	
+	Ext.class="form-control input";
+	Ext.id="ExtInput";
+	Ext.placeholder="Extension";
+	Ext.required="required";
+	Ext.maxlength="10";
+	Ext.type="text";
+	Ext.name="email";
+
+	document.getElementById("ExtensionDiv").appendChild(Ext);
+	
+	document.getElementById("BusinessPhInp").placeholder="Business Phone # ";
+		//document.getElementById("BusinessPhInp").innerHTML= "Company Name : ";
+		//document.getElementById("HomePhTxt").innerHTML= "* Business Phone : ";
 		accountType="Business";
 
 	}
 	else{
-		document.getElementById("CompanyTxt").innerHTML= "User Name : ";
-		document.getElementById("HomePhTxt").innerHTML= "* Home Phone : ";
+	
+		var element = document.getElementById("ExtInput");
+			element.remove();
+		document.getElementById("BusinessPhInp").placeholder="Home Phone # ";
+
+		//document.getElementById("CompanyTxt").innerHTML= "User Name : ";
+		//document.getElementById("HomePhTxt").innerHTML= "* Home Phone : ";
 		accountType="Home";
 	}
 		
@@ -131,11 +153,11 @@ function PassMatch(){
 		var password1=document.getElementById("inputPassword").value;
 		var password2=document.getElementById("inputPassword2").value;
 		if(password1==password2){
-			document.getElementById("ConfirmTxt").style.color = "black";
+			//document.getElementById("ConfirmTxt").style.color = "black";
 			HasError=0;
 		}
 		else{
-			document.getElementById("ConfirmTxt").style.color = "red";
+			//document.getElementById("ConfirmTxt").style.color = "red";
 			HasError=1;
 		}
 	

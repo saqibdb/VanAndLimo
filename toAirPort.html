@@ -172,7 +172,7 @@
 															<tr>
 															  <td><div class="checkbox">
 																  <label>
-																	<input type="checkbox"checked> 
+																	<input type="radio" checked="true" name="radgroupMeetNgreet"> 
 																  </label>
 																</div></td>
 															  <td><br/><h4> Curb Side Pick up </h4> </td>
@@ -184,7 +184,7 @@
 															<tr>
 															  <td><div class="checkbox">
 																					  <label>
-																						<input type="checkbox"> 
+																						<input type="radio"  name="radgroupMeetNgreet"> 
 																					  </label>
 																					</div></td>
 															  <td><br/> <h4>Meet N Greet service*1 </h4></td>
@@ -360,48 +360,97 @@
 						<table class="table table-striped table-hover ">
 						  <thead>
 							<tr>
-							  <th>#</th>
-							  <th>Car</th>
-							  <th>Fare</th>
+							  <th>  </th>
+							  <th>Hybrid</th>
+							  <th>Executive Sedan</th>
+							  <th>Mini Van</th>
+							  <th>Executive SUV</th>
 							  
 							</tr>
 						  </thead>
 						  <tbody>
 							<tr id="Hybrid">
-							  <td>1</td>
-							  <td>Hybrid Car</td>
-							  <td id="HybridFare">nil</td>
+							  <td>Base Fare / Minimum Fare :</td>
+							  <td id="HybridBaseFare">nil</td>
+							  <td id="ExecutiveSedanBaseFare">nil</td>
+							  <td id="MiniVanBaseFare">nil</td>
+							  <td id="ExecutiveSUVBaseFare">nil</td>
 							  
 							</tr>
 							<tr id="ExecutiveSedan">
-							  <td>2</td>
-							  <td>Executive Sedan</td>
-							  <td id="ExecutiveSedanFare">nil</td>
+							  <td>Mileage Cost (D*Vehicle Rate)</td>
+							  <td id="HybridMileageCost">nil</td>
+							  <td id="ExecutiveSedanMileageCost">nil</td>
+							  <td id="MiniVanMileageCost">nil</td>
+							  <td id="ExecutiveSUVMileageCost">nil</td>
 							</tr>
 							<tr  id="MiniVan">
-							  <td>3</td>
-							  <td>Mini Van</td>
-							  <td id="MiniVanFare">nil</td>
+							  <td>Time Cost (Time*0.4$)</td>
+							  <td id="HybridTimeCost">nil</td>
+							  <td id="ExecutiveSedanTimeCost">nil</td>
+							  <td id="MiniVanTimeCost">nil</td>
+							  <td id="ExecutiveSUVTimeCost">nil</td>
 							</tr>
 							<tr  id="ExecutiveSUV">
-							  <td>4</td>
-							  <td>Executive SUV</td>
-							  <td id="ExecutiveSUVFare">nil</td>
+							  <td>CurbSide Pickup</td>
+							  <td id="HybridCurbside">Free</td>
+							  <td id="ExecutiveSedanCurbside">Free</td>
+							  <td id="MiniVanCurbside">Free</td>
+							  <td id="ExecutiveSUVCurbside">Free</td>
 							</tr>
 							<tr  id="ClubVan">
-							  <td>5</td>
-							  <td>Club Van</td>
-							  <td id="ClubVanFare">nil</td>
+							  <td>Meet N Greet(if selected)</td>
+							  <td id="HybridMeetNGreet">$ 15.00</td>
+							  <td id="ExecutiveSedanMeetNGreet">$ 15.00</td>
+							  <td id="MiniVanMeetNGreet">$ 15.00</td>
+							  <td id="ExecutiveSUVMeetNGreet">$ 15.00</td>
 							</tr>
 							<tr  id="MercedesVan">
-							  <td>6</td>
-							  <td>Mercedes Van</td>
-							  <td id="MercedesVanFare">nil</td>
+							  <td>10:00Pm to 06:00Am Surcharge</td>
+							   <td id="HybridSurcharge">$ 5.00</td>
+							  <td id="ExecutiveSedanSurcharge">$ 5.00</td>
+							  <td id="MiniVanSurcharge">$ 5.00</td>
+							  <td id="ExecutiveSUVSurcharge">$ 5.00</td>
 							</tr>
 							<tr  id="StretchLimo">
-							  <td>7</td>
-							  <td>Stretch Limo</td>
-							  <td id="StretchLimoFare">nil</td>
+							  <td>Car Seat / Booster (If selected)</td>
+							   <td id="HybridBooster">$ 15.00</td>
+							  <td id="ExecutiveSedanBooster">$ 15.00</td>
+							  <td id="MiniVanBooster">$ 15.00</td>
+							  <td id="ExecutiveSUVBooster">$ 15.00</td>
+							</tr>
+							<tr  id="">
+							  <td>Waiting time (If any)</td>
+							   <td id="HybridWaiting">$*</td>
+							  <td id="ExecutiveSedanWaiting">$*</td>
+							  <td id="MiniVanWaiting">$*</td>
+							  <td id="ExecutiveSUVWaiting">$*</td>
+							</tr>
+							<tr  id="">
+							  <td>Extra Stops (If selected)</td>
+							   <td id="HybridExtraStops">$**</td>
+							  <td id="ExecutiveSedanExtraStops">$**</td>
+							  <td id="MiniVanExtraStops">$**</td>
+							  <td id="ExecutiveSUVExtraStops">$**</td>
+							</tr>
+							<tr  id="">
+							  <td>Estimated Fare</td>
+							  <td id="HybridEstimateFare">nil</td>
+							  <td id="ExecutiveSedanEstimateFare">nil</td>
+							  <td id="MiniVanEstimateFare">nil</td>
+							  <td id="ExecutiveSUVEstimateFare">nil</td>
+							</tr>
+							<tr  id="">
+							  <td>Gratuity</td>
+							  <td>[In Cash 10%/15%/20%/25%/50%/100%]</td>
+							  
+							</tr>
+							<tr  id="">
+							  <td>Total Estimate Fare</td>
+							  <td id="HybridTotalEstimateFare">nil</td>
+							  <td id="ExecutiveSedanTotalEstimateFare">nil</td>
+							  <td id="MiniVanTotalEstimateFare">nil</td>
+							  <td id="ExecutiveSUVTotalEstimateFare">nil</td>
 							</tr>
 						  </tbody>
 						</table> 
