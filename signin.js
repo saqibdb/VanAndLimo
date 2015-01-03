@@ -17,6 +17,8 @@ var fare;
 var accountType;
 var HasError=1;
 
+var isBusiness=1;
+
 function initializeBody() {
 	
 								
@@ -77,43 +79,56 @@ function SignUp(){
 				var password=document.getElementById("inputPassword").value;
 
 				
-				//var accountType=document.getElementById("optionsRadios").value;//change needed here after the net
-				//var username=document.getElementById("inputCompanyName").value;
+				var accountType="Business";//change needed here after the net
+				var username=email;
 
 				var LastName=document.getElementById("inputLastName").value;
 				var FirstName=document.getElementById("inputFirstName").value;
 				var MobileNumber=document.getElementById("inputMobile").value;
 				var HomeNumber=document.getElementById("BusinessPhInp").value;
-								
+							
+				var Extension="nil";
+				
+
+				if(isBusiness==1){
+					accountType="Business";
+					Extension=document.getElementById("ExtInput").value;
+				}
+				else{
+					accountType="Home";
+					Extension="nil";
+				}
 
 				var user = new Parse.User();
 					user.set("email", email);
 					user.set("password", password);	
-					//user.set("accountType", accountType);
-					//user.set("username", email);
+					user.set("accountType", accountType);
+					user.set("username", username);
 					user.set("LastName", LastName);
 					user.set("FirstName", FirstName);
 					user.set("MobileNumber", MobileNumber);
 					user.set("HomeNumber", HomeNumber);
-					 
+					user.set("Extension", Extension);
+					
 					user.signUp(null, {
-					  success: function(user) {	
-					  						alert("* Verification Email Sent. Please Confirm Email and Login.");
-
-						//document.getElementById("EmailProceedingTxt").innerHTML= "* Verification Email Sent. Please Confirm Email and Login.";
-					  },
-					  error: function(user, error) {
-						// Show the error message somewhere and let the user try again.
-						alert("Error: " + error.code + " " + error.message);
-						//document.getElementById("EmailProceedingTxt").innerHTML= "* Error = "+error.message;
-					  }
-					});
+						  success: function(user) {
+							// Hooray! Let them use the app now.
+							alert("Hooray! Let them use the app now");
+						  },
+						  error: function(user, error) {
+							// Show the error message somewhere and let the user try again.
+							alert("Error: " + error.code + " " + error.message);
+						  }
+						});
 				}
 				else{
 					alert("Password Do not match");
 				}
 
 
+}
+function haha(){
+alert("hahahah");
 }
 function radioClick(){
 
@@ -134,7 +149,7 @@ function radioClick(){
 		//document.getElementById("BusinessPhInp").innerHTML= "Company Name : ";
 		//document.getElementById("HomePhTxt").innerHTML= "* Business Phone : ";
 		accountType="Business";
-
+	isBusiness=1;
 	}
 	else{
 	
@@ -145,6 +160,7 @@ function radioClick(){
 		//document.getElementById("CompanyTxt").innerHTML= "User Name : ";
 		//document.getElementById("HomePhTxt").innerHTML= "* Home Phone : ";
 		accountType="Home";
+		isBusiness=0;
 	}
 		
 

@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <form id="signupForm" method="POST" action="#hahaha" accept-charset="UTF-8">
+                                        <form id="signupForm" method="POST" onsubmit="SignUp()" accept-charset="UTF-8">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 <input id="inputEmail" class="form-control input" placeholder="Email" required="required" maxlength="100" type="text" name="email" value="">
@@ -185,7 +185,7 @@
                                                 <input id="BusinessPhInp" class="form-control input" placeholder="Business Phone # " required="required" maxlength="100" type="text" name="email" value="">
                                             </div>
                                                 <div class="form-group">
-                                                <button type="submit" id="btn-signup" class="btn btn-block btn-primary btn-lg" onclick=SignUp();>Sign Up</button>
+                                                <button type="submit" id="btn-signup" class="btn btn-block btn-primary btn-lg">Sign Up</button>
                                             </div>
                                         </form>
                                         <div class="form-group">
@@ -193,7 +193,9 @@
                                         </div>
                                         <div class="form-group">
                                             <p>By clicking on "Sign Up", you agree to read and accept VanAndLimo  <a href="#terms-of-service" target="_blank">Terms of Service</a> and the <a href="#privacy" target="_blank">Privacy Policy</a>.</p>
-                                        </div>
+                                            <p class="text-danger" id="EmailProceedingTxt"> </p>
+
+										</div>
                                     </div><!-- end of column -->
                                 </div><!-- end of row -->
                             </div><!-- end of column 2 -->
@@ -204,18 +206,7 @@
         </div>
     </div>  
 </div>
-			<script>							
-							$(document).ready(function () {
-					$('form input').tooltip({
-					  placement: 'top',
-					  trigger: 'focus',
-					  title: function (){
-						return $(this).attr('placeholder');
-					  }
-					});
-				});										
-					
- </script>
+		
 		
 		 
 
