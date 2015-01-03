@@ -187,26 +187,29 @@ function calcFare() {
 											var MileageCostMiniVan=0;
 											var MileageCostExecutiveSUV=0;
 											var TimeCost=0;
-											if( Allowed_Travel_Dist >= (r1+r2+r3)){
-												AllDistance=Allowed_Travel_Dist;
-												MileageCost=AllDistance*RateFactorMile;
-												TimeCost=0;
-												
-												MileageCostHybrid=AllDistance*2.5;
-												MileageCostExecutiveSedan=AllDistance*2.75;
-												MileageCostMiniVan=AllDistance*3;
-												MileageCostExecutiveSUV=AllDistance*3.25;
-												
-											}
-											else{
+											if( !Allowed_Travel_Dist >= (r1+r2+r3)){
 												AllDistance=(r1+r2+r3);
 												MileageCost=AllDistance+BaseFare;
-												TimeCost=time*0.4;
+												TimeCost=0;
 												
 												MileageCostHybrid=AllDistance+30;
 												MileageCostExecutiveSedan=AllDistance+40;
 												MileageCostMiniVan=AllDistance+45;
 												MileageCostExecutiveSUV=AllDistance+50;
+												
+											}
+											else{
+												
+												
+												
+												AllDistance=Allowed_Travel_Dist/3;
+												MileageCost=AllDistance*RateFactorMile;
+												TimeCost=time*0.4;
+												
+												MileageCostHybrid=AllDistance*2.5;
+												MileageCostExecutiveSedan=AllDistance*2.75;
+												MileageCostMiniVan=AllDistance*3;
+												MileageCostExecutiveSUV=AllDistance*3.25;
 												
 												//var fareTotal= (r1*0.25)+(r2*2.75)+(r3*0.25)+(time*0.25);
 
