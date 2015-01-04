@@ -114,10 +114,12 @@ function SignUp(){
 						  success: function(user) {
 							// Hooray! Let them use the app now.
 							alert("Hooray! Let them use the app now");
+							document.getElementById("EmailProceedingTxt").innerHTML= "Check your Email and validate to proceed.";
 						  },
 						  error: function(user, error) {
 							// Show the error message somewhere and let the user try again.
 							alert("Error: " + error.code + " " + error.message);
+							document.getElementById("EmailProceedingTxt").innerHTML= "Error: " + error.code + " " + error.message;
 						  }
 						});
 				}
