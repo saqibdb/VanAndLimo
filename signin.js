@@ -62,7 +62,7 @@ alert(password);
 					
 				  },
 				  error: function(user, error) {
-					alert(error.message);// The login failed. Check error to see why.
+					alert(error.code+" "+error.message);// The login failed. Check error to see why.
 				  }
 				});//log in
 
