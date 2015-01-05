@@ -47,7 +47,7 @@ function LoginCheck(){
 				var username=document.getElementById("usernametxt").value;
 				var password=document.getElementById("passwordtxt").value;
 
-
+alert(password);
 				Parse.User.logIn(username, password, {
 				  success: function(user) {
 					if(user.get("emailVerified")==false){
