@@ -171,14 +171,18 @@ function calcFare() {
 			
 		//calcDistance("550 Light St, Baltimore",from);
 		calcDistance("550 Light St, Baltimore",from,0, function(r1) {
-		
+			document.getElementById("PointATOPointB").innerHTML= "Distance From: 550 Light St to: "+to+" = "+r1+" miles";
+			
 					calcDistance(from,to,1, function(r2) {
 							var distaneAll3=r2;
+							document.getElementById("550stTOPointA").innerHTML= "Distance From: "+from+" to: "+to+" = "+r2+" miles";	
+							
 							distaneAll3=(distaneAll3).toFixed(2);
 							 document.getElementById("DistanceText").innerHTML= "Distance = "+distaneAll3+" Miles";	
 							 document.getElementById("TimeText").innerHTML= "Time = "+time+ " mins";
 								calcDistance(to,"550 Light St, Baltimore",0, function(r3) {
-								
+									document.getElementById("PointBTO550st").innerHTML= "Distance From: "+from+" to: 550 Light St = "+r3+" miles";	
+
 										calcDistance(to,from,0, function(r4) {
 											var Allowed_Travel_Dist= ((r2+r4)/2)*3;
 											var MileageCost=0;
