@@ -115,7 +115,7 @@
 											
  
 
-										<img id="SelectedCar" src="assets/img/vehicles/executive.jpg" alt="Smiley face">
+										<img id="SelectedCar" src="assets/img/vehicles/executive.png" alt="Smiley face">
 										
 										<h2>Select Vehicle</h2>
 										<br/>
@@ -336,29 +336,25 @@
  
           <div class="col-sm-12">
 					
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 					<input type="button" class="btn btn-primary" value="Calculate Fare" onclick="calcFare();">
 						<div id="CAlculatedFare" class="CAlculatedFare">
 					<br/>
 					<br/>
 					<h2>Fare and Distance</h2>
 					<div class="well well-sm">
-					<p id="FromText">From = nil</p>
-					<p id="ToText">To = nil</p>
-					<p id="DistanceText">Distance = nil</p>
-					<p id="TimeText">Time = nil</p>	
-					<p id="FareText">Fare = nil</p>
+					<p id="FromText">From = nil</p><p id="ToText">To = nil</p><p id="DistanceText">Distance = nil</p>
+
+					<p id="TimeText">Time = nil</p>	<p id="FareText">Fare = nil</p>
 					<p id="550stTOPointA">Distance = nil</p>
 					<p id="PointATOPointB">Distance = nil</p>
 					<p id="PointBTO550st">Distance = nil</p>
-					</div>
-					
-					
+
 					</div>
 					
 					</div>
 
-    					<div class="col-lg-6">
+    					<div class="col-lg-12">
 						
 						<table class="table table-striped table-hover ">
 						  <thead>
@@ -446,6 +442,9 @@
 							<tr  id="">
 							  <td>Gratuity</td>
 							  <td>[In Cash 10%/15%/20%/25%/50%/100%]</td>
+							  <td></td>
+							  <td></td>
+							  <td></td>
 							  
 							</tr>
 							<tr  id="">
@@ -461,28 +460,70 @@
 						  </tbody>
 						 
 						</table> 
-							<label>
-								<input id="Gratuity10" type="radio" name="RadioGroupGratuity"> 10%
-							</label>
-							<label>
-								<input id="Gratuity15" type="radio" name="RadioGroupGratuity"> 15%
-							</label>
-							<label>
-								<input id="Gratuity20" type="radio" name="RadioGroupGratuity"> 20%
-							</label>
-							<label>
-								<input id="Gratuity25" type="radio" name="RadioGroupGratuity"> 25%
-							</label>
-							<label>
-								<input id="Gratuity50" type="radio" name="RadioGroupGratuity"> 50%
-							</label>
-							<label>
-								<input id="Gratuity100" type="radio" name="RadioGroupGratuity"> 100%
-							</label>
+							
+							
+							
+							
+							
+							
 			
 						</div>
-					
-				
+					<table class="table table-striped table-hover ">
+						  <thead>
+								<tr>
+								  <th>Check For Gratuity</th>
+								  
+								</tr>
+							  </thead>
+						  <tbody>
+							<tr>
+							
+							<td></td>
+							 <td> 
+							  <label>
+								<input id="Gratuity10" type="radio" name="RadioGroupGratuity"> 10%
+							</label>
+							 </td>
+							 <td> 
+							  <label>
+								<input id="Gratuity15" type="radio" name="RadioGroupGratuity"> 15%
+							</label>
+							</td>
+	  
+							  <td><label>
+								<input id="Gratuity20" type="radio" name="RadioGroupGratuity"> 20%
+							</label></td>
+ 
+							  <td><label>
+								<input id="Gratuity25" type="radio" name="RadioGroupGratuity"> 25%
+							</label></td>
+							
+							
+							
+							
+							  
+							  <td><label>
+								<input id="Gratuity50" type="radio" name="RadioGroupGratuity"> 50%
+							</label></td>
+							
+							
+							  
+							  <td><label>
+								<input id="Gratuity100" type="radio" name="RadioGroupGratuity"> 100%
+							</label></td>
+							</tr>
+							
+							
+							
+							
+						
+						  </tbody>
+						  
+						  
+						</table> 
+				<p class="pull-left"><a href="#" class="btn btn-primary">Book it</a></p>
+                        
+                        <p class="pull-right"><a href="#" class="btn btn-primary">Text Estimate</a></p>
 									
 					</div>
 					
@@ -499,7 +540,7 @@
 	
                 function sliderOnSlide(e) {	
                     if(e.value==1){
-					imageAddress = "assets/img/vehicles/sedan.jpg";
+					imageAddress = "assets/img/vehicles/sedan.png";
 						$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(3,1);
@@ -514,7 +555,7 @@
 						createBags();
 					}
 					else if(e.value==2){
-					imageAddress = "assets/img/vehicles/executive.jpg";
+					imageAddress = "assets/img/vehicles/executive.png";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(4,1);
@@ -543,7 +584,7 @@
 						createBags();
 					}
 					else if(e.value==4){
-					imageAddress = "assets/img/vehicles/suv.jpg";
+					imageAddress = "assets/img/vehicles/suv.png";
 					$("#sliderPerson").data("kendoSlider").destroy();
 						$("#sliderDynamicPerson").empty();                
 						createIt(7,1);
