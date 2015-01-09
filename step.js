@@ -268,9 +268,7 @@ function calcFare() {
 												}
 											
 											
-											if(document.getElementById("mySelect").value = "Gratuity10";)
-											
-											{
+											if(document.getElementById("Gratuity10").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.10);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.10);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.10);
@@ -278,35 +276,35 @@ function calcFare() {
 
 
 												}
-												else (document.getElementById("mySelect").value = "Gratuity15";){
+												else if(document.getElementById("Gratuity15").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.15);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.15);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.15);
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+(EstimatedFareExecutiveSUV*0.15);
 
 												}
-												else if(document.getElementById("mySelect").value = "Gratuity20";){
+												else if(document.getElementById("Gratuity20").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.2);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.2);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.2);
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+(EstimatedFareExecutiveSUV*0.2);
 
 												}
-												else (document.getElementById("mySelect").value = "Gratuity25";){
+												else if(document.getElementById("Gratuity25").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.25);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.25);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.25);
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+(EstimatedFareExecutiveSUV*0.25);
 
 												}
-												else (document.getElementById("mySelect").value = "Gratuity50";)){
+												else if(document.getElementById("Gratuity50").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.5);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.5);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.5);
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+(EstimatedFareExecutiveSUV*0.5);
 
 												}
-												else (document.getElementById("mySelect").value = "Gratuity100";){
+												else if(document.getElementById("Gratuity100").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan);
@@ -320,8 +318,6 @@ function calcFare() {
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV;
 
 												}
-												
-											
 											
 											
 											
