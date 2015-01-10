@@ -169,82 +169,82 @@
 										
 														<table class="table table-striped table-hover ">
 														  
-															<tr>
-															  <td><div class="checkbox">
-																  <label>
-																	<input id="MeetNGreetInp" type="radio" checked="true" name="radgroupMeetNgreet"> 
-																  </label>
-																</div></td>
-															  <td><br/><h4> Curb Side Pick up </h4> </td>
-															  
-															 <td></td>
-															 <td></td>
-															 
-															</tr>
-															<tr>
-															  <td><div class="checkbox">
-																					  <label>
-																						<input id="MeetNGreetInp" type="radio"  name="radgroupMeetNgreet"> 
-																					  </label>
-																					</div></td>
-															  <td><br/> <h4>Meet N Greet service*1 </h4></td>
-															  <td><div class="form-group">
-																		  
-																		  </td>
-															  <td></td>
-															</tr>
-															
+
+														<tr>
 															  <td><div class="checkbox">
 																						  <label>
 																							<input type="checkbox"> 
 																						  </label>
 																						</div></td>
-															  <td><br/><h4>Extra Stops*2</h4></td>
+															  <td><br/><h4>Extra Stops</h4></td>
 															  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Extra Stop Subject To Additional Fee">
+																		  <input class="form-control" id="ExtraStopsInput" type="text" placeholder="Extra Stop Subject To Additional Fee">
 																		</div></td>
 															  <td></td>
 															</tr>
+
 															<tr>
 																  <td><div class="checkbox">
 																							  <label>
 																								<input type="checkbox"> 
 																							  </label>
 																							</div></td>
-																  <td><br/><h4>Pets / Serice Animals*3</h4> </td>
+																  <td><br/><h4>Pets / Serice Animals</h4> </td>
 																  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Size of Kennel,Animal Size">
+																		  <input class="form-control" id="PetsInput" type="text" placeholder="Size of Kennel,Animal Size">
 																		</div></td>
 																  <td></td>
 																</tr>
 																<tr>
+																	  <td><div class="checkbox">
+																				  <label>
+																					<input type="checkbox"> 
+																				</div></td>
+																	  <td><br/><h4>Extra Large Items </h4></td>
+																	  <td><div class="form-group">
+																				  
+																				  <input class="form-control" id="ExtraItemsInput" type="text" placeholder="Ski Boards,Tv Box.etc">
+																				</div></td>
+																	  <td> </td>
+																</tr>
+																<tr>
+																	 <td><div class="checkbox">
+																				  <label>
+																					<input id="carSeatInp" type="checkbox"> 
+																				</div></td>
+																	  <td><br/><h4>Child/Booster Seat ($15 extra)</h4></td>
+																	  <td><div class="form-group">
+																				  
+																				  <input class="form-control" id="ChildSeatInput" type="text" placeholder="Ages of Kids?">
+																				</div></td>
+																	  <td> </td>
+																</tr>
+																<tr>
 															  <td><div class="checkbox">
-																		  <label>
-																			<input type="checkbox"> 
-																		</div></td>
-															  <td><br/><h4>Extra Large Items*4 </h4></td>
+																					  <label>
+																						<input id="MeetNGreetInp" type="radio"  name="radgroupMeetNgreet"> 
+																					  </label>
+																					</div></td>
+															  <td><br/> <h4>Meet N Greet service - Driver will meet at Baggage Claim with a Name Sign ($15 extra)</h4></td>
 															  <td><div class="form-group">
 																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Ski Boards,Tv Box.etc">
-																		</div></td>
-															  <td> </td>
-																															</tr>
-															 <td><div class="checkbox">
-																		  <label>
-																			<input id="carSeatInp" type="checkbox"> 
-																		</div></td>
-															  <td><br/><h4>Carseat/booster Seat*5</h4></td>
-															  <td><div class="form-group">
-																		  
-																		  <input class="form-control" id="focusedInput" type="text" value="Ages of Kids?">
-																		</div></td>
-															  <td> </td>
-																															</tr>
-															
-															
-															
+																		  </td>
+															  <td></td>
+															</tr>
+															<tr>
+															  <td><div class="checkbox">
+																  <label>
+																	<input id="MeetNGreetInp" type="radio" checked="true" name="radgroupMeetNgreet"> 
+																  </label>
+																</div></td>
+															  <td><br/><h4> Curb Side Pick up (Free)</h4> </td>
+															  
+															 <td></td>
+															 <td></td>
+															 
+															</tr>						
 															</table>
 										
 										
@@ -307,7 +307,13 @@
 								  <option value="Tripton Airport-Fort Meade">FME-Tripton Airport-Fort Meade</option>
 
 							</select>
-							
+
+
+										<div class="form-group">
+													<p id="inpSpecialtxt" class="inpTxt">Special Instructions/Notes <input id="inpSpecialinp" type="text" placeholder="Directions / Gate code Etc."/></p>
+
+										</div>
+
 							</div>
 							
 						
@@ -343,12 +349,35 @@
 					<br/>
 					<h2>Fare and Distance</h2>
 					<div class="well well-sm">
-					<p id="FromText">From = nil</p><p id="ToText">To = nil</p><p id="DistanceText">Distance = nil</p>
 
-					<p id="TimeText">Time = nil</p>	<p id="FareText">Fare = nil</p>
-					<p id="550stTOPointA">Distance = nil</p>
-					<p id="PointATOPointB">Distance = nil</p>
-					<p id="PointBTO550st">Distance = nil</p>
+					<p id="DateTimeText">Trip Estimate for MM-DD-YYYY /DOW/ HH:MM AM/PM</p>
+
+					<p id="FromText">P/U = nil</p>
+					<p id="ToText">D/U = nil</p>
+					<p id="PsngrText">Passenger NN</p>
+					<p id="BagsText">Bags NN</p>
+					<p id="DistanceBAText">Distance(BA) : NNN Miles</p>
+					<p id="DistanceABText">Distance(AB) : NNN Miles</p>
+					<p id="DistanceCBText">Distance(CB) : NNN Miles</p>
+					<p id="DistanceACText">Distance(AC) : NNN Miles</p>
+					<p id="DistanceDText">Average Trip Distance (D) : NNN Miles</p>
+					<p id="DistanceLText">Allowed Distance (L) : NNN Miles</p>
+
+					<p id="DistanceMText">Actual Trip Mileage (M) : BA+CB+AC Miles</p>
+					<p id="TimeText">Travel Time : NNN Minutes</p>
+
+
+
+
+
+
+
+
+					
+
+					
+					<p id="FareText">Fare = nil</p>
+					
 
 					</div>
 					
@@ -442,16 +471,7 @@
 							<tr  id="">
 							  <td>Gratuity</td>
 							  <td>[In Cash 10%/15%/20%/25%/50%/100%]
-								<select id="mySelect">
-								  <option value="Gratuity10">10%</option>
-								  <option value="Gratuity15">15%</option>
-								  <option value="Gratuity20">20%</option>
-								  <option value="Gratuity25">25%</option>
-								  <option value="Gratuity50">50%</option>
-								  <option value="Gratuity100">100%</option>
-								  
-								  
-								</select>
+								
 							  
 							  
 							  </td>
@@ -481,6 +501,60 @@
 							
 			
 						</div>
+						<table class="table table-striped table-hover ">
+						  <thead>
+								<tr>
+								  <th>Check For Gratuity</th>
+								  
+								</tr>
+							  </thead>
+						  <tbody>
+							<tr>
+							
+							<td></td>
+							 <td> 
+							  <label>
+								<input id="Gratuity10" type="radio" name="RadioGroupGratuity"> 10%
+							</label>
+							 </td>
+							 <td> 
+							  <label>
+								<input id="Gratuity15" type="radio" name="RadioGroupGratuity"> 15%
+							</label>
+							</td>
+	  
+							  <td><label>
+								<input id="Gratuity20" type="radio" name="RadioGroupGratuity"> 20%
+							</label></td>
+ 
+							  <td><label>
+								<input id="Gratuity25" type="radio" name="RadioGroupGratuity"> 25%
+							</label></td>
+							
+							
+							
+							
+							  
+							  <td><label>
+								<input id="Gratuity50" type="radio" name="RadioGroupGratuity"> 50%
+							</label></td>
+							
+							
+							  
+							  <td><label>
+								<input id="Gratuity100" type="radio" name="RadioGroupGratuity"> 100%
+							</label></td>
+							</tr>
+							
+							
+							
+							
+						
+						  </tbody>
+						  
+						  
+						</table> 
+						
 					
 				<p class="pull-left"><a href="#" class="btn btn-primary">Book it</a></p>
                         

@@ -171,20 +171,50 @@ function calcFare() {
 			
 		//calcDistance("550 Light St, Baltimore",from);
 		calcDistance("550 Light St, Baltimore",from,0, function(r1) {
-			document.getElementById("PointATOPointB").innerHTML= "Distance From: 550 Light St to: "+to+" = "+r1+" miles";
+			//document.getElementById("PointATOPointB").innerHTML= "Distance From: 550 Light St to: "+to+" = "+r1+" miles";
+
+			document.getElementById("DistanceCBText").innerHTML= "Distance(CB) : "+Math.round(r1)+" Miles";
 			
 					calcDistance(from,to,1, function(r2) {
 							var distaneAll3=r2;
-							document.getElementById("550stTOPointA").innerHTML= "Distance From: "+from+" to: "+to+" = "+r2+" miles";	
+							//document.getElementById("550stTOPointA").innerHTML= "Distance From: "+from+" to: "+to+" = "+r2+" miles";	
 							
+							document.getElementById("DistanceBAText").innerHTML= "Distance(BA) : "+Math.round(r2)+" Miles";
+
 							distaneAll3=(distaneAll3).toFixed(2);
-							 document.getElementById("DistanceText").innerHTML= "Distance = "+distaneAll3+" Miles";	
-							 document.getElementById("TimeText").innerHTML= "Time = "+time+ " mins";
+							 //document.getElementById("DistanceText").innerHTML= "Distance = "+distaneAll3+" Miles";	
+							 document.getElementById("TimeText").innerHTML= "Travel Time : "+time+ " Minutes";
 								calcDistance(to,"550 Light St, Baltimore",0, function(r3) {
-									document.getElementById("PointBTO550st").innerHTML= "Distance From: "+from+" to: 550 Light St = "+r3+" miles";	
+									//document.getElementById("PointBTO550st").innerHTML= "Distance From: "+from+" to: 550 Light St = "+r3+" miles";	
+
+									document.getElementById("DistanceACText").innerHTML= "Distance(AC) : "+Math.round(r3)+" Miles";
 
 										calcDistance(to,from,0, function(r4) {
+
+											document.getElementById("DistanceABText").innerHTML= "Distance(AB) : "+Math.round(r4)+" Miles";
+
+											var AverageTripDistance=(r2+r4)/2;
+											document.getElementById("DistanceDText").innerHTML= "Average Trip Distance (D) : "+Math.round(AverageTripDistance)+" Miles";
+
+
+
+
+
 											var Allowed_Travel_Dist= ((r2+r4)/2)*3;
+											document.getElementById("DistanceLText").innerHTML= "Allowed Distance (L) : "+Math.round(Allowed_Travel_Dist)+" Miles";
+											document.getElementById("DistanceMText").innerHTML= "Actual Trip Mileage (M) : "+Math.round(r1+r2+r3)+" Miles";
+
+
+											var bagsValue=document.getElementById("sliderBags").value;
+											document.getElementById("BagsText").innerHTML= "Bags "+bagsValue;
+
+
+											var personValue=document.getElementById("sliderPerson").value;
+											document.getElementById("PsngrText").innerHTML= "Passenger "+personValue;
+
+											var dateValue=$("#datepickerOnly").data("kendoDatePicker").value();
+											document.getElementById("DateTimeText").innerHTML= "Trip Estimate for "+personValue;
+
 											var MileageCost=0;
 											var MileageCostHybrid=0;
 											var MileageCostExecutiveSedan=0;
