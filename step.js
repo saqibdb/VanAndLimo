@@ -61,10 +61,14 @@ function initializeBody() {
 $(document).ready(function(){
 									// find the input fields and apply the time select to them.
 									$("#datepickerOnly").kendoDatePicker({
-										value:new Date()
+										value:new Date(),
+										min: new Date()
+										
 									});		//for the date picker one
 								  $("#timepickerOnly").kendoTimePicker({
-										interval: 15
+										interval: 15,
+										value:new Date(),
+										min: new Date()
 									});		//for the time picker one
 								 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -122,6 +126,7 @@ function calcRoute() {
 function calcFare() {
 	
 	time=0;
+	var nightSurcharge=0;
    var AllDistance=0;
 		/*if(time==0){
 			alert("No route found!");
@@ -212,8 +217,32 @@ function calcFare() {
 											var personValue=document.getElementById("sliderPerson").value;
 											document.getElementById("PsngrText").innerHTML= "Passenger "+personValue;
 
-											var dateValue=$("#datepickerOnly").data("kendoDatePicker").value();
-											document.getElementById("DateTimeText").innerHTML= "Trip Estimate for "+personValue;
+											var datePicker=$("#datepickerOnly").data("kendoDatePicker").value();
+											var day=datePicker.getDate();
+											var month=datePicker.getMonth()+1;
+											var year=datePicker.getFullYear();
+											
+											var timePicker=$("#timepickerOnly").data("kendoTimePicker").value();
+											var hours=timePicker.getHours();
+											 var dd = "AM";
+											if (hours >= 22 || hours <= 5) {
+												nightSurcharge=15;
+												
+											}
+											else{
+												nightSurcharge=0;
+											}
+											if (hours >= 12) {
+												hours = hh-12;
+												dd = "PM";
+											}
+											if (hours == 0) {
+												hours = 12;
+											}
+											var minutes=timePicker.getMinutes();
+
+											
+											document.getElementById("DateTimeText").innerHTML= "Trip Estimate for "+month+"-"+day+"-"+year+" / DOW / "+hours+":"+minutes+" "+dd;
 
 											var MileageCost=0;
 											var MileageCostHybrid=0;
