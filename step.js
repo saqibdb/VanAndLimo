@@ -226,7 +226,7 @@ function calcFare() {
 											var hours=timePicker.getHours();
 											 var dd = "AM";
 											if (hours >= 22 || hours <= 5) {
-												nightSurcharge=15;
+												nightSurcharge=5;
 												
 											}
 											else{
@@ -382,21 +382,144 @@ function calcFare() {
 											
 											
 												ChangeCell("HybridBaseFare","$ "+30.00);
-												ChangeCell("HybridMileageCost","$ "+MileageCostHybrid);
-												ChangeCell("HybridTimeCost","$ "+TimeCost);
+												ChangeCell("HybridMileageCost","$ "+Math.round(MileageCostHybrid));
+												ChangeCell("HybridTimeCost","$ "+Math.round(TimeCost));
 												ChangeCell("HybridCurbside","Free ");
-												ChangeCell("HybridMeetNGreet","$ 15.00");
-
-												
-									
-												ChangeCell("HybridSurcharge","$ 5.00");
-												ChangeCell("HybridBooster","$ 15.00");
+												if(document.getElementById("MeetNGreetInp").checked==true){
+													ChangeCell("HybridCurbside","$ 5.00 ");
+												}
+												ChangeCell("HybridSurcharge"," ");
+												if(nightSurcharge==5){
+													ChangeCell("HybridSurcharge","$ 5.00");
+												}
+												ChangeCell("HybridAnimals"," ");
+												if(document.getElementById("PetsInputCheck").checked==true){
+													ChangeCell("HybridAnimals","$ 15.00 ");
+												}
+												ChangeCell("HybridItems"," ");
+												if(document.getElementById("ItemsInputCheck").checked==true){
+													ChangeCell("HybridItems","$ 15.00 ");
+												}												
+												ChangeCell("HybridBooster"," ");
+												if(document.getElementById("carSeatInp").checked==true){
+													ChangeCell("HybridBooster","$ 15.00 ");
+												}
 												ChangeCell("HybridWaiting","$*");
-												ChangeCell("HybridExtraStops","$**");
-												ChangeCell("HybridEstimateFare","$ "+EstimatedFareHybrid);
-												ChangeCell("HybridTotalEstimateFare","$ "+TotalEstimatedFareHybrid);
+												ChangeCell("HybridExtraStops"," ");
+												if(document.getElementById("ExtraStopsInp").checked==true){
+													ChangeCell("HybridExtraStops","$ 15.00 ");
+												}
+												ChangeCell("HybridEstimateFare","$ "+Math.round(EstimatedFareHybrid));
+												ChangeCell("HybridTotalEstimateFare","$ "+Math.round(TotalEstimatedFareHybrid));
 												
 												ChangeCell("ExecutiveSedanBaseFare","$ "+40.00);
+												ChangeCell("ExecutiveSedanMileageCost","$ "+Math.round(MileageCostExecutiveSedan));
+												ChangeCell("ExecutiveSedanTimeCost","$ "+Math.round(TimeCost));
+												ChangeCell("ExecutiveSedanCurbside","Free ");
+												if(document.getElementById("MeetNGreetInp").checked==true){
+													ChangeCell("ExecutiveSedanCurbside","$ 5.00 ");
+												}
+												ChangeCell("ExecutiveSedanSurcharge"," ");
+												if(nightSurcharge==5){
+													ChangeCell("ExecutiveSedanSurcharge","$ 5.00");
+												}
+												ChangeCell("ExecutiveSedanAnimals"," ");
+												if(document.getElementById("PetsInputCheck").checked==true){
+													ChangeCell("ExecutiveSedanAnimals","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSedanItems"," ");
+												if(document.getElementById("ItemsInputCheck").checked==true){
+													ChangeCell("ExecutiveSedanItems","$ 15.00 ");
+												}												
+												ChangeCell("ExecutiveSedanBooster"," ");
+												if(document.getElementById("carSeatInp").checked==true){
+													ChangeCell("ExecutiveSedanBooster","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSedanWaiting","$*");
+												ChangeCell("ExecutiveSedanExtraStops"," ");
+												if(document.getElementById("ExtraStopsInp").checked==true){
+													ChangeCell("ExecutiveSedanExtraStops","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSedanEstimateFare","$ "+Math.round(EstimatedFareExecutiveSedan));
+												ChangeCell("ExecutiveSedanTotalEstimateFare","$ "+Math.round(TotalEstimatedFareExecutiveSedan));
+												
+												ChangeCell("MiniVanBaseFare","$ "+45.00);
+												ChangeCell("MiniVanMileageCost","$ "+Math.round(MileageCostMiniVan));
+												ChangeCell("MiniVanTimeCost","$ "+Math.round(TimeCost));
+												ChangeCell("MiniVanCurbside","Free ");
+												if(document.getElementById("MeetNGreetInp").checked==true){
+													ChangeCell("MiniVanCurbside","$ 5.00 ");
+												}
+												ChangeCell("MiniVanSurcharge"," ");
+												if(nightSurcharge==5){
+													ChangeCell("MiniVanSurcharge","$ 5.00");
+												}
+												ChangeCell("MiniVanAnimals"," ");
+												if(document.getElementById("PetsInputCheck").checked==true){
+													ChangeCell("MiniVanAnimals","$ 15.00 ");
+												}
+												ChangeCell("MiniVanItems"," ");
+												if(document.getElementById("ItemsInputCheck").checked==true){
+													ChangeCell("MiniVanItems","$ 15.00 ");
+												}												
+												ChangeCell("MiniVanBooster"," ");
+												if(document.getElementById("carSeatInp").checked==true){
+													ChangeCell("MiniVanBooster","$ 15.00 ");
+												}
+												ChangeCell("MiniVanWaiting","$*");
+												ChangeCell("MiniVanExtraStops"," ");
+												if(document.getElementById("ExtraStopsInp").checked==true){
+													ChangeCell("MiniVanExtraStops","$ 15.00 ");
+												}
+												ChangeCell("MiniVanEstimateFare","$ "+Math.round(EstimatedFareMiniVan));
+												ChangeCell("MiniVanTotalEstimateFare","$ "+Math.round(TotalEstimatedFareMiniVan));
+												
+												
+												
+												
+												
+												ChangeCell("ExecutiveSUVBaseFare","$ "+50.00);
+												ChangeCell("ExecutiveSUVMileageCost","$ "+Math.round(MileageCostExecutiveSUV));
+												ChangeCell("ExecutiveSUVTimeCost","$ "+Math.round(TimeCost));
+												ChangeCell("ExecutiveSUVCurbside","Free ");
+												if(document.getElementById("MeetNGreetInp").checked==true){
+													ChangeCell("ExecutiveSUVCurbside","$ 5.00 ");
+												}
+												ChangeCell("ExecutiveSUVSurcharge"," ");
+												if(nightSurcharge==5){
+													ChangeCell("ExecutiveSUVSurcharge","$ 5.00");
+												}
+												ChangeCell("ExecutiveSUVAnimals"," ");
+												if(document.getElementById("PetsInputCheck").checked==true){
+													ChangeCell("ExecutiveSUVAnimals","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSUVItems"," ");
+												if(document.getElementById("ItemsInputCheck").checked==true){
+													ChangeCell("ExecutiveSUVItems","$ 15.00 ");
+												}												
+												ChangeCell("ExecutiveSUVBooster"," ");
+												if(document.getElementById("carSeatInp").checked==true){
+													ChangeCell("ExecutiveSUVBooster","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSUVWaiting","$*");
+												ChangeCell("ExecutiveSUVExtraStops"," ");
+												if(document.getElementById("ExtraStopsInp").checked==true){
+													ChangeCell("ExecutiveSUVExtraStops","$ 15.00 ");
+												}
+												ChangeCell("ExecutiveSUVEstimateFare","$ "+Math.round(EstimatedFareExecutiveSUV));
+												ChangeCell("ExecutiveSUVTotalEstimateFare","$ "+Math.round(TotalEstimatedFareExecutiveSUV));
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												/*ChangeCell("ExecutiveSedanBaseFare","$ "+40.00);
 												ChangeCell("ExecutiveSedanMileageCost","$ "+MileageCostExecutiveSedan);
 												ChangeCell("ExecutiveSedanTimeCost","$ "+TimeCost);
 												ChangeCell("ExecutiveSedanCurbside","Free ");
@@ -430,14 +553,18 @@ function calcFare() {
 												ChangeCell("ExecutiveSUVWaiting","$*");
 												ChangeCell("ExecutiveSUVExtraStops","$**");
 												ChangeCell("ExecutiveSUVEstimateFare","$ "+EstimatedFareExecutiveSUV);
-												ChangeCell("ExecutiveSUVTotalEstimateFare","$ "+TotalEstimatedFareExecutiveSUV);
+												ChangeCell("ExecutiveSUVTotalEstimateFare","$ "+TotalEstimatedFareExecutiveSUV);*/
 											
 											
 												ChangeCellColor(selectedCar,"BaseFare");
 												ChangeCellColor(selectedCar,"MileageCost");
 												ChangeCellColor(selectedCar,"TimeCost");
 												ChangeCellColor(selectedCar,"Curbside");
-												ChangeCellColor(selectedCar,"MeetNGreet");
+												
+												ChangeCellColor(selectedCar,"Animals");
+												ChangeCellColor(selectedCar,"Items");
+
+												//ChangeCellColor(selectedCar,"MeetNGreet");
 												ChangeCellColor(selectedCar,"Surcharge");
 												ChangeCellColor(selectedCar,"Booster");
 												ChangeCellColor(selectedCar,"Waiting");
