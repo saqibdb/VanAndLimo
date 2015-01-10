@@ -8474,7 +8474,7 @@ label,.control-label,.help-block,.checkbox,.radio
     color: #222222;
 }
 
-#inpBusiness ,#inpIntersection ,#inpStreet,#inpCity,#inpCityTo
+#inpBusiness ,#inpIntersection ,#inpStreet,#inpCity,#inpCityTo,#inpSpecialinp
 {
     display: block;
     width: 100%;
