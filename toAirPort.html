@@ -398,7 +398,7 @@
 						  </thead>
 						  <tbody>
 							<tr id="Hybrid">
-							  <td>Base Fare / Minimum Fare :</td>
+							  <td>Minimum Fare :</td>
 							  <td id="HybridBaseFare"> </td>
 							  <td id="ExecutiveSedanBaseFare"> </td>
 							  <td id="MiniVanBaseFare"> </td>
@@ -406,14 +406,14 @@
 							  
 							</tr>
 							<tr id="ExecutiveSedan">
-							  <td>Mileage Cost (D*Vehicle Rate)</td>
+							  <td>Mileage Cost</td>
 							  <td id="HybridMileageCost"> </td>
 							  <td id="ExecutiveSedanMileageCost"> </td>
 							  <td id="MiniVanMileageCost"> </td>
 							  <td id="ExecutiveSUVMileageCost"> </td>
 							</tr>
 							<tr  id="MiniVan">
-							  <td>Time Cost (Time*0.4$)</td>
+							  <td>Travel Time @ $.40</td>
 							  <td id="HybridTimeCost"> </td>
 							  <td id="ExecutiveSedanTimeCost"> </td>
 							  <td id="MiniVanTimeCost"> </td>
@@ -434,7 +434,7 @@
 							  <td id="ExecutiveSUVAnimals"> </td>
 							</tr>
 							<tr  id="ClubVan">
-							  <td>Extra LArge Items</td>
+							  <td>Extra Large Items</td>
 							  <td id="HybridItems"> </td>
 							  <td id="ExecutiveSedanItems"> </td>
 							  <td id="MiniVanItems"> </td>
@@ -442,32 +442,39 @@
 							</tr>
 							
 							<tr  id="MercedesVan">
-							  <td>10:00Pm to 06:00Am Surcharge</td>
+							  <td>Night Surcharge(10:00PM to 06:00AM) </td>
 							   <td id="HybridSurcharge"> </td>
 							  <td id="ExecutiveSedanSurcharge"> </td>
 							  <td id="MiniVanSurcharge"> </td>
 							  <td id="ExecutiveSUVSurcharge"> </td>
 							</tr>
 							<tr  id="StretchLimo">
-							  <td>Car Seat / Booster (If selected)</td>
+							  <td>Child seat</td>
 							   <td id="HybridBooster"> </td>
 							  <td id="ExecutiveSedanBooster"> </td>
 							  <td id="MiniVanBooster"> </td>
 							  <td id="ExecutiveSUVBooster"> </td>
 							</tr>
 							<tr  id="">
-							  <td>Waiting time (If any)</td>
-							   <td id="HybridWaiting"> </td>
-							  <td id="ExecutiveSedanWaiting"> </td>
-							  <td id="MiniVanWaiting"> </td>
-							  <td id="ExecutiveSUVWaiting"> </td>
+							  <td>Waiting Time</td>
+							   <td id="HybridWaiting">$* </td>
+							  <td id="ExecutiveSedanWaiting">$* </td>
+							  <td id="MiniVanWaiting">$* </td>
+							  <td id="ExecutiveSUVWaiting">$* </td>
 							</tr>
 							<tr  id="">
-							  <td>Extra Stops (If selected)</td>
+							  <td>Extra Stops</td>
 							   <td id="HybridExtraStops"> </td>
 							  <td id="ExecutiveSedanExtraStops"> </td>
 							  <td id="MiniVanExtraStops"> </td>
 							  <td id="ExecutiveSUVExtraStops"> </td>
+							</tr>
+							<tr  id="">
+							  <td>Toll / Parking Charges</td>
+							   <td id="HybridToll">$*** </td>
+							  <td id="ExecutiveSedanToll">$*** </td>
+							  <td id="MiniVanToll">$*** </td>
+							  <td id="ExecutiveSUVToll">$*** </td>
 							</tr>
 							<tr  id="">
 							  <td>Estimated Fare</td>
@@ -477,8 +484,19 @@
 							  <td id="ExecutiveSUVEstimateFare"> </td>
 							</tr>
 							<tr  id="">
-							  <td>Gratuity</td>
-							  <td>[In Cash 10%/15%/20%/25%/50%/100%]
+							  <td>Gratuity in Cash</td>
+							  <td>
+										<div class="drop-down-manu">
+										<select class="form-control" id="selectGratuity">
+										  <option value=0.10>10%</option>
+											  <option value=0.15>15%</option>
+											  <option value=0.20>20%</option>
+											  <option value=0.25>25%</option>
+											  <option value=0.50>50%</option>
+											  <option value=1.0>100%</option>
+											</select>
+
+							</div>
 								
 							  
 							  
@@ -509,59 +527,7 @@
 							
 			
 						</div>
-						<table class="table table-striped table-hover ">
-						  <thead>
-								<tr>
-								  <th>Check For Gratuity</th>
-								  
-								</tr>
-							  </thead>
-						  <tbody>
-							<tr>
-							
-							<td></td>
-							 <td> 
-							  <label>
-								<input id="Gratuity10" type="radio" name="RadioGroupGratuity"> 10%
-							</label>
-							 </td>
-							 <td> 
-							  <label>
-								<input id="Gratuity15" type="radio" name="RadioGroupGratuity"> 15%
-							</label>
-							</td>
-	  
-							  <td><label>
-								<input id="Gratuity20" type="radio" name="RadioGroupGratuity"> 20%
-							</label></td>
- 
-							  <td><label>
-								<input id="Gratuity25" type="radio" name="RadioGroupGratuity"> 25%
-							</label></td>
-							
-							
-							
-							
-							  
-							  <td><label>
-								<input id="Gratuity50" type="radio" name="RadioGroupGratuity"> 50%
-							</label></td>
-							
-							
-							  
-							  <td><label>
-								<input id="Gratuity100" type="radio" name="RadioGroupGratuity"> 100%
-							</label></td>
-							</tr>
-							
-							
-							
-							
 						
-						  </tbody>
-						  
-						  
-						</table> 
 						
 					
 				<p class="pull-left"><a href="#" class="btn btn-primary">Book it</a></p>
@@ -703,7 +669,7 @@
 										max: max,
 									   smallStep: 1,
 									   largeStep: 1,
-									   value: 2
+									   value: 1
 								   }).data("kendoSlider");
 						
 					}
@@ -1049,6 +1015,8 @@
 					
 					
                 $(document).ready(function() {
+                	createIt(3,1);
+                	
                    var slider =  $("#sliderCar").kendoSlider({
                         change: sliderOnSlide,
                      
@@ -1057,7 +1025,7 @@
 
                         smallStep: 1,
                         largeStep: 1,
-                        value: 2,
+                        value: 1,
 						tooltip: {
 						enabled: false
 							}

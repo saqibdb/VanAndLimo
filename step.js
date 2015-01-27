@@ -46,7 +46,7 @@ function initializeBody() {
 									  }
 									  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 									  directionsDisplay.setMap(map);
-			
+									  
 
 	
 
@@ -72,12 +72,14 @@ $(document).ready(function(){
 									});		//for the time picker one
 								 google.maps.event.addDomListener(window, 'load', initialize);
 
+
 						}); // end ready()
 
 						
 						
 						
 function calcRoute() {
+	
 					var select=document.getElementById("select");
 					  var start = document.getElementById("inpCity").value;
 					  var end = select.value//document.getElementById("inpCityTo").value;
@@ -225,22 +227,24 @@ function calcFare() {
 											var timePicker=$("#timepickerOnly").data("kendoTimePicker").value();
 											var hours=timePicker.getHours();
 											 var dd = "AM";
-											if (hours >= 22 || hours <= 5) {
+											 
+											if (hours >= 21 || hours <= 5){
 												nightSurcharge=5;
 												
 											}
 											else{
 												nightSurcharge=0;
 											}
-											if (hours >= 12) {
-												hours = hh-12;
+											
+
+											if (hours >= 12){
+												hours = hours-12;
 												dd = "PM";
 											}
-											if (hours == 0) {
+											if (hours == 0){
 												hours = 12;
 											}
 											var minutes=timePicker.getMinutes();
-
 											
 											document.getElementById("DateTimeText").innerHTML= "Trip Estimate for "+month+"-"+day+"-"+year+" / DOW / "+hours+":"+minutes+" "+dd;
 
@@ -305,29 +309,60 @@ function calcFare() {
 											EstimatedFareExecutiveSUV=MileageCostExecutiveSUV+TimeCost;
 											
 											
-												if(document.getElementById("carSeatInp").checked==true){
-														EstimatedFareHybrid=EstimatedFareHybrid+15;
-														EstimatedFareExecutiveSedan=EstimatedFareHybrid+15;
-														EstimatedFareMiniVan=EstimatedFareHybrid+15;
-														EstimatedFareExecutiveSUV=EstimatedFareHybrid+15;
-												}
-												else{
-
-												}
+												
 											
 												if(document.getElementById("MeetNGreetInp").checked==true){
-														
+														EstimatedFareHybrid=EstimatedFareHybrid+15;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
 												}
 												else{
-														EstimatedFareHybrid=EstimatedFareHybrid+15;
-														EstimatedFareExecutiveSedan=EstimatedFareHybrid+15;
-														EstimatedFareMiniVan=EstimatedFareHybrid+15;
-														EstimatedFareExecutiveSUV=EstimatedFareHybrid+15;
+														
 
 												}
+												
+												if(document.getElementById("PetsInputCheck").checked==true){
+														EstimatedFareHybrid=EstimatedFareHybrid+15;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+												}
+												if(document.getElementById("ItemsInputCheck").checked==true){
+														EstimatedFareHybrid=EstimatedFareHybrid+15;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+												}
+												if(nightSurcharge==5){
+														EstimatedFareHybrid=EstimatedFareHybrid+5;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+5;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+5;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+5;
+												}
+												if(document.getElementById("carSeatInp").checked==true){
+														EstimatedFareHybrid=EstimatedFareHybrid+15;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+												}
+												if(document.getElementById("ExtraStopsInp").checked==true){
+														EstimatedFareHybrid=EstimatedFareHybrid+15;
+														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
+														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
+														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+												}
+												
+												
 											
-											
-											if(document.getElementById("Gratuity10").checked==true){
+											var gratuatiValue=document.getElementById("selectGratuity").value;
+													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*gratuatiValue);
+													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*gratuatiValue);
+													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*gratuatiValue);
+													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+(EstimatedFareExecutiveSUV*gratuatiValue);
+													
+													
+											/*if(document.getElementById("Gratuity10").checked==true){
 													var TotalEstimatedFareHybrid=EstimatedFareHybrid+(EstimatedFareHybrid*0.10);
 													var TotalEstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+(EstimatedFareExecutiveSedan*0.10);
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan+(EstimatedFareMiniVan*0.10);
@@ -376,7 +411,7 @@ function calcFare() {
 													var TotalEstimatedFareMiniVan=EstimatedFareMiniVan;
 													var TotalEstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV;
 
-												}
+												}*/
 											
 											
 											
@@ -386,7 +421,7 @@ function calcFare() {
 												ChangeCell("HybridTimeCost","$ "+Math.round(TimeCost));
 												ChangeCell("HybridCurbside","Free ");
 												if(document.getElementById("MeetNGreetInp").checked==true){
-													ChangeCell("HybridCurbside","$ 5.00 ");
+													ChangeCell("HybridCurbside","$ 15.00 ");
 												}
 												ChangeCell("HybridSurcharge"," ");
 												if(nightSurcharge==5){
@@ -417,7 +452,7 @@ function calcFare() {
 												ChangeCell("ExecutiveSedanTimeCost","$ "+Math.round(TimeCost));
 												ChangeCell("ExecutiveSedanCurbside","Free ");
 												if(document.getElementById("MeetNGreetInp").checked==true){
-													ChangeCell("ExecutiveSedanCurbside","$ 5.00 ");
+													ChangeCell("ExecutiveSedanCurbside","$ 15.00 ");
 												}
 												ChangeCell("ExecutiveSedanSurcharge"," ");
 												if(nightSurcharge==5){
@@ -448,7 +483,7 @@ function calcFare() {
 												ChangeCell("MiniVanTimeCost","$ "+Math.round(TimeCost));
 												ChangeCell("MiniVanCurbside","Free ");
 												if(document.getElementById("MeetNGreetInp").checked==true){
-													ChangeCell("MiniVanCurbside","$ 5.00 ");
+													ChangeCell("MiniVanCurbside","$ 15.00 ");
 												}
 												ChangeCell("MiniVanSurcharge"," ");
 												if(nightSurcharge==5){
@@ -483,7 +518,7 @@ function calcFare() {
 												ChangeCell("ExecutiveSUVTimeCost","$ "+Math.round(TimeCost));
 												ChangeCell("ExecutiveSUVCurbside","Free ");
 												if(document.getElementById("MeetNGreetInp").checked==true){
-													ChangeCell("ExecutiveSUVCurbside","$ 5.00 ");
+													ChangeCell("ExecutiveSUVCurbside","$ 15.00 ");
 												}
 												ChangeCell("ExecutiveSUVSurcharge"," ");
 												if(nightSurcharge==5){
@@ -569,6 +604,7 @@ function calcFare() {
 												ChangeCellColor(selectedCar,"Booster");
 												ChangeCellColor(selectedCar,"Waiting");
 												ChangeCellColor(selectedCar,"ExtraStops");
+												ChangeCellColor(selectedCar,"Toll");
 												ChangeCellColor(selectedCar,"EstimateFare");
 												ChangeCellColor(selectedCar,"TotalEstimateFare");
 												
