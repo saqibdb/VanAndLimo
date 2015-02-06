@@ -115,6 +115,8 @@ function SignUp(){
 							// Hooray! Let them use the app now.
 							alert("Hooray! Let them use the app now");
 							document.getElementById("EmailProceedingTxt").innerHTML= "Check your Email and validate to proceed.";
+							window.location.href = 'EmailCheckRedirect.html';
+
 						  },
 						  error: function(user, error) {
 							// Show the error message somewhere and let the user try again.

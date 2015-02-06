@@ -25,6 +25,23 @@ var total=0 ;
 var time=0;	
 var fare;
 
+var VehicleType= "Hybrid";
+var NoOfPassengers="1";
+var LuggageType="StandardBag";
+var MeetNGreetToSend="No";
+var Pets="No";
+var ExtraLargeItems="No";
+var NightSurcharge="No";
+var ChildSeat="No";
+var ExtraStopsToSend="No";
+var TimeToPick="Nill";
+var DateToPick="Nill";
+var SpecialNotes="Nill";
+
+
+
+
+
 function initializeBody() {
 	
 								 BusinessBox = document.getElementById("inpBusinessp");
@@ -59,6 +76,8 @@ function initializeBody() {
 
 }
 $(document).ready(function(){
+			Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
+
 									// find the input fields and apply the time select to them.
 									$("#datepickerOnly").kendoDatePicker({
 										value:new Date(),
@@ -144,30 +163,39 @@ function calcFare() {
 			RateFactorMile=2.5;
 			BaseFare=30;
 			selectedCar="Hybrid";
+			VehicleType= "Hybrid";
+
 		}
 		else if(selectedCar=="ExecutiveSedan"){
 			RateFactorMile=2.75;
 			BaseFare=40;
+			VehicleType= "ExecutiveSedan";
+
 		}
 		else if(selectedCar=="ExecutiveSUV"){
 			RateFactorMile=3.25;
 			BaseFare=50;
+			VehicleType= "ExecutiveSUV";
 		}
 		else if(selectedCar=="ClubVan"){
 			RateFactorMile=2.75;
 			BaseFare=0;
+			VehicleType= "ClubVan";
 		}
 		else if(selectedCar=="MercedesVan"){
 			RateFactorMile=2.75;
 			BaseFare=0;
+			VehicleType= "MercedesVan";
 		}
 		else if(selectedCar=="MiniVan"){
 			RateFactorMile=3;
 			BaseFare=45;
+			VehicleType= "MiniVan";
 		}
 		else if(selectedCar=="Limo"){
 			RateFactorMile=2.75;
 			BaseFare=0;
+			VehicleType= "Limo";
 		}
 		
 		
@@ -218,6 +246,8 @@ function calcFare() {
 
 											var personValue=document.getElementById("sliderPerson").value;
 											document.getElementById("PsngrText").innerHTML= "Passenger "+personValue;
+											NoOfPassengers="0"+personValue;
+
 
 											var datePicker=$("#datepickerOnly").data("kendoDatePicker").value();
 											var day=datePicker.getDate();
@@ -247,6 +277,10 @@ function calcFare() {
 											var minutes=timePicker.getMinutes();
 											
 											document.getElementById("DateTimeText").innerHTML= "Trip Estimate for "+month+"-"+day+"-"+year+" / DOW / "+hours+":"+minutes+" "+dd;
+
+											TimeToPick=""+hours+":"+minutes+" "+dd;
+											DateToPick=""+month+"-"+day+"-"+year;
+											SpecialNotes=document.getElementById("inpSpecialinp").value;
 
 											var MileageCost=0;
 											var MileageCostHybrid=0;
@@ -316,6 +350,7 @@ function calcFare() {
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+														MeetNGreetToSend="Yes";
 												}
 												else{
 														
@@ -327,30 +362,39 @@ function calcFare() {
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+														Pets="Yes";
+
 												}
 												if(document.getElementById("ItemsInputCheck").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+														ExtraLargeItems="Yes";
+
 												}
 												if(nightSurcharge==5){
 														EstimatedFareHybrid=EstimatedFareHybrid+5;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+5;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+5;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+5;
+														NightSurcharge="Yes";
 												}
 												if(document.getElementById("carSeatInp").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+														ChildSeat="Yes";
+
 												}
 												if(document.getElementById("ExtraStopsInp").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+15;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
+														ExtraStopsToSend="Yes";
+
 												}
 												
 												
@@ -813,6 +857,26 @@ function handleClickBusiness(cb){
 		StreetBox.remove();
 		CityBox.remove();
 	}
+}
+function PopulateBookingValuesInDatabase(){
+
+	if(document.getElementById("stadardBag").checked){
+		LuggageType="StadardBag";
+	}
+	else if(document.getElementById("LargeBag").checked){
+		LuggageType="LargeBag";
+	}
+	else if(document.getElementById("XLBag").checked){
+		LuggageType="XLBag";
+	}
+	else if(document.getElementById("GolfBag").checked){
+		LuggageType="GolfBag";
+	}
+
+
+
+
+	alert(LuggageType);
 }
 
 

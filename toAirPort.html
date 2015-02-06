@@ -143,7 +143,7 @@
 										
 										<h2>Select luggage: </h2>
 										<div id="rbtn">
-											<p class="block"><h5><input type="radio" name="radgroup" id="stadardBag"  value="A" onclick="stadardBagEnable()"> Standard Bag (22 inch)</h5></p>
+											<p class="block"><h5><input type="radio" name="radgroup" id="stadardBag"  value="A" onclick="stadardBagEnable()" checked="true"> Standard Bag (22 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="LargeBag" value="B" onclick="LargeBagEnable()"> Large Bag (36-28 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="XLBag" value="C" onclick="XLBagEnable()"> XL Bag (30-32 inch)</h5></p>
 											<p class="block"><h5><input type="radio" name="radgroup" id="GolfBag" value="D" onclick="GolfBagEnable()"> Golf Bag (42-54 inch)</h5></p>
@@ -488,6 +488,7 @@
 							  <td>
 										<div class="drop-down-manu">
 										<select class="form-control" id="selectGratuity">
+										 <option value=0.0>0%</option>
 										  <option value=0.10>10%</option>
 											  <option value=0.15>15%</option>
 											  <option value=0.20>20%</option>
@@ -530,7 +531,7 @@
 						
 						
 					
-				<p class="pull-left"><a href="#" class="btn btn-primary">Book it</a></p>
+				<p class="pull-left"><a href="#" class="btn btn-primary" onclick="PopulateBookingValuesInDatabase();">Book it</a></p>
                         
                         <p class="pull-right"><a href="#" class="btn btn-primary">Text Estimate</a></p>
 									
