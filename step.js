@@ -80,8 +80,7 @@ function initializeBody() {
 
 }
 $(document).ready(function(){
-			Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
-
+Parse.initialize("6vPYUacCkc7H6lMPdv4OEKAkdQA5FN0qMTO4eWxf", "V97XLcCebaefJKsCbkxSpy9l32XPh1FyOyK77eXU");
 
 									// find the input fields and apply the time select to them.
 									$("#datepickerOnly").kendoDatePicker({
