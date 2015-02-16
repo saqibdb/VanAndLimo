@@ -37,6 +37,10 @@ var ExtraStopsToSend="No";
 var TimeToPick="Nill";
 var DateToPick="Nill";
 var SpecialNotes="Nill";
+var AverDistance="Nill";
+var bagstoSend="Nill";
+var timeToSend="Nill";
+var dateToSend="Nill";
 
 
 
@@ -44,6 +48,7 @@ var SpecialNotes="Nill";
 
 function initializeBody() {
 	
+										zoom: 9,
 								 BusinessBox = document.getElementById("inpBusinessp");
 								IntersectionBox = document.getElementById("inpIntersectionp");
 								StreetBox = document.getElementById("inpStreetp");
@@ -58,7 +63,6 @@ function initializeBody() {
 										directionsDisplay = new google.maps.DirectionsRenderer();
 									  var chicago = new google.maps.LatLng(39.2833, -76.6167);
 									  var mapOptions = {
-										zoom: 9,
 										center: chicago
 									  }
 									  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
@@ -77,6 +81,7 @@ function initializeBody() {
 }
 $(document).ready(function(){
 			Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
+
 
 									// find the input fields and apply the time select to them.
 									$("#datepickerOnly").kendoDatePicker({
@@ -229,6 +234,7 @@ function calcFare() {
 											document.getElementById("DistanceABText").innerHTML= "Distance(AB) : "+Math.round(r4)+" Miles";
 
 											var AverageTripDistance=(r2+r4)/2;
+											AverDistance=Math.round(AverageTripDistance)+"";
 											document.getElementById("DistanceDText").innerHTML= "Average Trip Distance (D) : "+Math.round(AverageTripDistance)+" Miles";
 
 
@@ -242,6 +248,7 @@ function calcFare() {
 
 											var bagsValue=document.getElementById("sliderBags").value;
 											document.getElementById("BagsText").innerHTML= "Bags "+bagsValue;
+											bagstoSend=bagsValue+"";
 
 
 											var personValue=document.getElementById("sliderPerson").value;
@@ -280,6 +287,10 @@ function calcFare() {
 
 											TimeToPick=""+hours+":"+minutes+" "+dd;
 											DateToPick=""+month+"-"+day+"-"+year;
+
+											timeToSend=TimeToPick;
+											 dateToSend=DateToPick;
+	
 											SpecialNotes=document.getElementById("inpSpecialinp").value;
 
 											var MileageCost=0;
@@ -353,7 +364,7 @@ function calcFare() {
 														MeetNGreetToSend="Yes";
 												}
 												else{
-														
+														MeetNGreetToSend="No";
 
 												}
 												
@@ -365,6 +376,9 @@ function calcFare() {
 														Pets="Yes";
 
 												}
+												else{
+													Pets="No";
+												}
 												if(document.getElementById("ItemsInputCheck").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
@@ -373,12 +387,18 @@ function calcFare() {
 														ExtraLargeItems="Yes";
 
 												}
+												else{
+													ExtraLargeItems="No";
+												}
 												if(nightSurcharge==5){
 														EstimatedFareHybrid=EstimatedFareHybrid+5;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+5;
 														EstimatedFareMiniVan=EstimatedFareMiniVan+5;
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+5;
 														NightSurcharge="Yes";
+												}
+												else{
+													NightSurcharge="No";
 												}
 												if(document.getElementById("carSeatInp").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
@@ -388,6 +408,9 @@ function calcFare() {
 														ChildSeat="Yes";
 
 												}
+												else{
+													ChildSeat="No";
+												}
 												if(document.getElementById("ExtraStopsInp").checked==true){
 														EstimatedFareHybrid=EstimatedFareHybrid+15;
 														EstimatedFareExecutiveSedan=EstimatedFareExecutiveSedan+15;
@@ -395,6 +418,9 @@ function calcFare() {
 														EstimatedFareExecutiveSUV=EstimatedFareExecutiveSUV+15;
 														ExtraStopsToSend="Yes";
 
+												}
+												else{
+													ExtraStopsToSend="No";
 												}
 												
 												
@@ -651,49 +677,50 @@ function calcFare() {
 												ChangeCellColor(selectedCar,"Toll");
 												ChangeCellColor(selectedCar,"EstimateFare");
 												ChangeCellColor(selectedCar,"TotalEstimateFare");
-												
+												var fareTotal;
 											if(selectedCar=="Hybrid"){
-													var fareTotal=TotalEstimatedFareHybrid;
+													 fareTotal=TotalEstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ExecutiveSedan"){
-												var fareTotal=TotalEstimatedFareExecutiveSedan;
+												 fareTotal=TotalEstimatedFareExecutiveSedan;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ExecutiveSUV"){
-												var fareTotal=TotalEstimatedFareExecutiveSUV;
+												 fareTotal=TotalEstimatedFareExecutiveSUV;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ClubVan"){
-												var fareTotal=EstimatedFareHybrid;
+												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="MercedesVan"){
-												var fareTotal=EstimatedFareHybrid;
+												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="MiniVan"){
-												var fareTotal=TotalEstimatedFareMiniVan;
+												 fareTotal=TotalEstimatedFareMiniVan;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="Limo"){
-												var fareTotal=EstimatedFareHybrid;
+												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
 													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
+											totalF=fareTotal;
 
 
 										});
@@ -876,7 +903,53 @@ function PopulateBookingValuesInDatabase(){
 
 
 
-	alert(LuggageType);
+
+				var GameScore = Parse.Object.extend("Booking_information");
+				var gameScore = new GameScore();
+				 
+
+
+
+
+
+					gameScore.set("ChildSeat", ChildSeat);
+			        gameScore.set("Date", DateToPick);
+			        gameScore.set("Distance", AverDistance);
+			        gameScore.set("DropOff", to);
+			        gameScore.set("ExtraLargeItems", ExtraLargeItems);
+			        gameScore.set("LuggageType", LuggageType);
+			        gameScore.set("MeetNGreet", MeetNGreetToSend);
+			        gameScore.set("NightSurcharge", NightSurcharge);
+			        gameScore.set("NoOfBags", bagstoSend);
+			        gameScore.set("NoOfPassengers", NoOfPassengers);
+
+
+			        gameScore.set("Pets", Pets);
+			        gameScore.set("PickUp", from);
+			        gameScore.set("SpecialNotes", SpecialNotes);
+			        gameScore.set("Time", timeToSend);
+			        gameScore.set("Date", dateToSend);
+			        gameScore.set("TotalFare", totalF);
+			        gameScore.set("TravelTime", time);
+
+			        gameScore.set("VehicleType", VehicleType);
+			        
+
+			
+
+				gameScore.save(null, {
+				  success: function(gameScore) {
+				    // Execute any logic that should take place after the object is saved.
+				    alert('New object created with objectId: ' + gameScore.id);
+				  },
+				  error: function(gameScore, error) {
+				    // Execute any logic that should take place if the save fails.
+				    // error is a Parse.Error with an error code and message.
+				    alert('Failed to create new object, with error code: ' + error.message);
+				  }
+				});
+
+
 }
 
 
