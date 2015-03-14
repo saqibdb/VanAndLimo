@@ -19,13 +19,13 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Bookings Type<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.php">To Airport</a>
+                                    <a href="toAirPortTables.php">To Airport</a>
                                 </li>
                                 <li>
-                                    <a href="blank.php">From Airpost</a>
+                                    <a href="fromAirPortTables.php">From Airpost</a>
                                 </li>
                                 <li>
-                                    <a href="blank.php">Point To Point</a>
+                                    <a href="pointToPointTables.php">Point To Point</a>
                                 </li>
                                 <li>
                                     <a href="blank.php">Hourly Service</a>

@@ -13,6 +13,11 @@ var IntersectionBox;
 var StreetBox;
 var CityBox;
 
+var BusinessBox1;
+var IntersectionBox1;
+var StreetBox1;
+var CityBox1;
+
 var directionsDisplay;
 var directionsService;
 var map;
@@ -48,7 +53,7 @@ var dateToSend="Nill";
 
 function initializeBody() {
 	
-										zoom: 9,
+										
 								 BusinessBox = document.getElementById("inpBusinessp");
 								IntersectionBox = document.getElementById("inpIntersectionp");
 								StreetBox = document.getElementById("inpStreetp");
@@ -59,14 +64,37 @@ function initializeBody() {
 									CityBox.remove();
 									document.getElementById("checkboxResidence").checked=true;
 									handleClickResidence();
+
+								BusinessBox1 = document.getElementById("inpBusinessp1");
+								IntersectionBox1 = document.getElementById("inpIntersectionp1");
+								StreetBox1 = document.getElementById("inpStreetp1");
+								CityBox1 = document.getElementById("inpCityp1");
+
+
+								/*  BusinessBox1.remove();
+
+									IntersectionBox1.remove();
+
+									StreetBox1.remove();
+									CityBox1.remove();*/
+
+
+
+									//document.getElementById("checkboxResidence1").checked=true;
+
+									//handleClickResidenceOne();
 									directionsService = new google.maps.DirectionsService();
 										directionsDisplay = new google.maps.DirectionsRenderer();
 									  var chicago = new google.maps.LatLng(39.2833, -76.6167);
 									  var mapOptions = {
+										zoom: 9,
 										center: chicago
 									  }
 									  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 									  directionsDisplay.setMap(map);
+
+
+
 									  
 
 	
@@ -103,7 +131,7 @@ Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOK
 						
 function calcRoute() {
 	
-					var select=document.getElementById("select");
+					var select=document.getElementById("inpCity1");
 					  var start = document.getElementById("inpCity").value;
 					  var end = select.value//document.getElementById("inpCityTo").value;
 					  var waypts = [];
@@ -158,9 +186,10 @@ function calcFare() {
 		}
 		else{*/
 			from=document.getElementById("inpCity").value;
-			to=document.getElementById("select").value;
+			to=document.getElementById("inpCity1").value;
 			document.getElementById("FromText").innerHTML= "From = "+from;
 			document.getElementById("ToText").innerHTML= "To = "+to;
+			
 		var RateFactorMile=0;
 		var BaseFare=0;
 		if(selectedCar=="hybrid"){
@@ -217,7 +246,6 @@ function calcFare() {
 					calcDistance(from,to,1, function(r2) {
 							var distaneAll3=r2;
 							//document.getElementById("550stTOPointA").innerHTML= "Distance From: "+from+" to: "+to+" = "+r2+" miles";	
-							
 							document.getElementById("DistanceBAText").innerHTML= "Distance(BA) : "+Math.round(r2)+" Miles";
 
 							distaneAll3=(distaneAll3).toFixed(2);
@@ -884,7 +912,88 @@ function handleClickBusiness(cb){
 		CityBox.remove();
 	}
 }
+
+
+function handleClickPublicOne(cb){
+	var CurrentCheckbox = document.getElementById("checkboxPublic1");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+				if(document.getElementById("checkboxResidence1").checked==true){
+					document.getElementById("checkboxResidence1").checked=false;
+					handleClickResidenceOne();
+				}
+				if(document.getElementById("checkboxBusiness1").checked==true){
+					document.getElementById("checkboxBusiness1").checked=false;
+					handleClickBusinessOne();
+				}
+		document.getElementById("AddressDiv1").appendChild( IntersectionBox1 );
+		document.getElementById("AddressDiv1").appendChild( StreetBox1 );
+		document.getElementById("AddressDiv1").appendChild( CityBox1 );
+		}
+	else{
+	
+		IntersectionBox1.remove();
+		StreetBox1.remove();
+		CityBox1.remove();
+	}
+}
+function handleClickResidenceOne(cb){
+
+	var CurrentCheckbox = document.getElementById("checkboxResidence1");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+	
+				if(document.getElementById("checkboxPublic1").checked==true){
+					document.getElementById("checkboxPublic1").checked=false;
+					handleClickPublicOne();
+				}
+				if(document.getElementById("checkboxBusiness1").checked==true){
+					document.getElementById("checkboxBusiness1").checked=false;
+					handleClickBusinessOne();
+				}
+		
+		document.getElementById("AddressDiv1").appendChild( StreetBox1 );
+		document.getElementById("AddressDiv1").appendChild( CityBox1 );
+		}
+	else{
+		StreetBox1.remove();
+		CityBox1.remove();
+	}
+}
+function handleClickBusinessOne(cb){
+	var CurrentCheckbox = document.getElementById("checkboxBusiness1");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+				if(document.getElementById("checkboxResidence1").checked==true){
+					document.getElementById("checkboxResidence1").checked=false;
+					handleClickResidenceOne();
+				}
+				if(document.getElementById("checkboxPublic1").checked==true){
+					document.getElementById("checkboxPublic1").checked=false;
+					handleClickPublicOne();
+				}
+		document.getElementById("AddressDiv1").appendChild( BusinessBox1 );
+		document.getElementById("AddressDiv1").appendChild( StreetBox1 );
+		document.getElementById("AddressDiv1").appendChild( CityBox1 );
+		}
+	else{
+	
+		BusinessBox1.remove();
+		StreetBox1.remove();
+		CityBox1.remove();
+	}
+}
 function PopulateBookingValuesInDatabase(){
+
+
+
+
 
 	if(document.getElementById("stadardBag").checked){
 		LuggageType="StadardBag";
@@ -950,6 +1059,30 @@ function PopulateBookingValuesInDatabase(){
 
 
 }
+function SendSMS(sender,reciever,SMSBody) {
+	var accountSid = 'AC76f95222a9de951390ccefb3ced761bf'; 
+	var authToken = '97b5cd9416864bce70a36ddccbda5a29'; 
+ 
+//require the Twilio module and create a REST client 
 
+	var client = require('twilio')('AC76f95222a9de951390ccefb3ced761bf', '97b5cd9416864bce70a36ddccbda5a29');
+	//var client = require('twilio')(accountSid, authToken); 
+	alert("err");
+// Send an SMS message
+			client.sendSms({
+			    to: reciever, 
+			    from: sender, 
+			    body: SMSBody
+			  }, function(err, responseData) { 
+			    if (err) {
+			      alert(err);
+			    } else { 
+			    	alert(responseData.body);
+			      /*console.log(responseData.from); 
+			      console.log(responseData.body);*/
+			    }
+			  }
+);
+}
 
 
