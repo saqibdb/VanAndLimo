@@ -43,10 +43,14 @@ Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOK
 						});
 						
 function LoginCheck(){
+<<<<<<< HEAD
 
 
 
 
+=======
+/*
+>>>>>>> origin/master
 				var username=document.getElementById("usernametxt").value;
 				var password=document.getElementById("passwordtxt").value;
 
@@ -69,8 +73,14 @@ alert(password);
 				  }
 				});//log in
 
+<<<<<<< HEAD
 
 /*	var authToken = '97b5cd9416864bce70a36ddccbda5a29'; 
+=======
+*/
+var accountSid = 'AC76f95222a9de951390ccefb3ced761bf'; 
+	var authToken = '97b5cd9416864bce70a36ddccbda5a29'; 
+>>>>>>> origin/master
  
 
 //require the Twilio module and create a REST client 

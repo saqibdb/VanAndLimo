@@ -65,10 +65,15 @@ function initializeBody() {
 									document.getElementById("checkboxResidence").checked=true;
 									handleClickResidence();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 								BusinessBox1 = document.getElementById("inpBusinessp1");
 								IntersectionBox1 = document.getElementById("inpIntersectionp1");
 								StreetBox1 = document.getElementById("inpStreetp1");
 								CityBox1 = document.getElementById("inpCityp1");
+<<<<<<< HEAD
 
 
 								/*  BusinessBox1.remove();
@@ -83,18 +88,33 @@ function initializeBody() {
 									//document.getElementById("checkboxResidence1").checked=true;
 
 									//handleClickResidenceOne();
+=======
+								  BusinessBox1.remove();
+									IntersectionBox1.remove();
+									StreetBox1.remove();
+									CityBox1.remove();
+									document.getElementById("checkboxResidence1").checked=true;
+									handleClickResidenceOne();
+>>>>>>> origin/master
 									directionsService = new google.maps.DirectionsService();
 										directionsDisplay = new google.maps.DirectionsRenderer();
 									  var chicago = new google.maps.LatLng(39.2833, -76.6167);
 									  var mapOptions = {
+<<<<<<< HEAD
 										zoom: 9,
+=======
+									  	zoom: 9,
+>>>>>>> origin/master
 										center: chicago
 									  }
 									  map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 									  directionsDisplay.setMap(map);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 									  
 
 	
@@ -992,10 +1012,18 @@ function handleClickBusinessOne(cb){
 function PopulateBookingValuesInDatabase(){
 
 
+<<<<<<< HEAD
 
 
 
 	if(document.getElementById("stadardBag").checked){
+=======
+SendSMS("+14432724100","+923465705958",totalF);
+
+
+
+	/*if(document.getElementById("stadardBag").checked){
+>>>>>>> origin/master
 		LuggageType="StadardBag";
 	}
 	else if(document.getElementById("LargeBag").checked){
@@ -1055,7 +1083,7 @@ function PopulateBookingValuesInDatabase(){
 				    // error is a Parse.Error with an error code and message.
 				    alert('Failed to create new object, with error code: ' + error.message);
 				  }
-				});
+				});*/
 
 
 }
