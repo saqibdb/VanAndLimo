@@ -44,6 +44,9 @@ Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOK
 						
 function LoginCheck(){
 
+
+
+
 				var username=document.getElementById("usernametxt").value;
 				var password=document.getElementById("passwordtxt").value;
 
@@ -67,6 +70,30 @@ alert(password);
 				});//log in
 
 
+/*	var authToken = '97b5cd9416864bce70a36ddccbda5a29'; 
+ 
+
+//require the Twilio module and create a REST client 
+var twilio = require('twilio');
+	alert("going to happen");
+
+	var client = twilio('AC76f95222a9de951390ccefb3ced761bf', '97b5cd9416864bce70a36ddccbda5a29');
+	//var client = require('twilio')(accountSid, authToken); 
+// Send an SMS message
+			/*client.sendSms({
+			    to: "+923465705958", 
+			    from: "+14432724100", 
+			    body: "bula bula"
+			  }, function(err, responseData) { 
+			    if (err) {
+			      alert(err);
+			    } else { 
+			    	alert(responseData.body);
+			      /*console.log(responseData.from); 
+			      console.log(responseData.body);
+			    }
+			  }
+);*/
 
 
 
