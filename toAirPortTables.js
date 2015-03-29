@@ -32,10 +32,11 @@ $(document).ready(function(){
 		
 				
 					Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
-					
+ //					Parse.User.logOut();
  					var currentUser = Parse.User.current();
 					
 					if (currentUser) {
+						
 						// do stuff with the user
 						
 					} else {
@@ -50,34 +51,76 @@ $(document).ready(function(){
 				query.find({
 				  success: function(results) {
 					alert("Successfully retrieved " + results.length + " Bookings.");
-					// Do something with the returned Parse.Object values
-					for (var i = 0; i < results.length; i++) { 
-					  var object = results[i];
-					  var OptionalServices="";
-
-					  if(object.get('MeetNGreet')=="Yes"){
-							OptionalServices=OptionalServices+"MeetNGreet";
-					  }
-					  if(object.get('Pets')=="Yes"){
-							OptionalServices=OptionalServices+" Pets";
-					  }
-					  if(object.get('ExtraLargeItems')=="Yes"){
-							OptionalServices=OptionalServices+" ExtraLargeItems";
-					  }
-					  if(object.get('NightSurcharge')=="Yes"){
-							OptionalServices=OptionalServices+" NightSurcharge";
-					  }
-					  if(object.get('ChildSeat')=="Yes"){
-							OptionalServices=OptionalServices+" ChildSeat";
-					  }
 
 
 
-					  GlobaldataSet[GlobaldataSet.length]=object;
-					  dataSet[dataSet.length]=[i+1+" ",object.get('VehicleType'),object.get('NoOfPassengers'),object.get('LuggageType'),OptionalServices,object.get('Date'),object.get('Time'),object.get('PickUp'),object.get('DropOff'),object.get('SpecialNotes'),object.get('TravelTime'),object.get('Distance'),object.get('TotalFare'),'<a class="btn btn-danger" onclick="Delete('+i+');">Delete</a><a class="btn btn-success" onclick="Copy('+i+');">Re-Book</a><a class="btn btn-primary" onclick="Update('+i+');">Update</a>'];
+					if (currentUser.get('isAdmin')=="Yes") {
+						  for (var i = 0; i < results.length; i++) { 
+						  var object = results[i];
+						  var OptionalServices="";
+
+						  if(object.get('MeetNGreet')=="Yes"){
+								OptionalServices=OptionalServices+"MeetNGreet";
+						  }
+						  if(object.get('Pets')=="Yes"){
+								OptionalServices=OptionalServices+" Pets";
+						  }
+						  if(object.get('ExtraLargeItems')=="Yes"){
+								OptionalServices=OptionalServices+" ExtraLargeItems";
+						  }
+						  if(object.get('NightSurcharge')=="Yes"){
+								OptionalServices=OptionalServices+" NightSurcharge";
+						  }
+						  if(object.get('ChildSeat')=="Yes"){
+								OptionalServices=OptionalServices+" ChildSeat";
+						  }
+
+
+
+						  GlobaldataSet[GlobaldataSet.length]=object;
+						  dataSet[dataSet.length]=[i+1+" ",object.get('VehicleType'),object.get('NoOfPassengers'),object.get('LuggageType'),OptionalServices,object.get('Date'),object.get('Time'),object.get('PickUp'),object.get('DropOff'),object.get('SpecialNotes'),object.get('TravelTime'),object.get('Distance'),object.get('TotalFare'),'<a class="btn btn-danger" onclick="Delete('+i+');">Delete</a><a class="btn btn-success" onclick="Copy('+i+');">Re-Book</a><a class="btn btn-primary" onclick="Update('+i+');">Update</a>'];
 					  
 					 
-					}
+							}
+
+						}
+						else{
+
+
+							var parent = document.getElementById("parent");
+							
+							var child1 = document.getElementById("VehicleType");
+							var child2 = document.getElementById("SelectedLuggage");
+							var child3 = document.getElementById("OptionalServices");
+							var child4 = document.getElementById("TimeCell");
+							var child5 = document.getElementById("DropOffCell");
+							var child6 = document.getElementById("SpecialNotesCell");
+							var child7 = document.getElementById("CommuteTime");
+
+							parent.removeChild(child1);
+							parent.removeChild(child2);
+							parent.removeChild(child3);
+							parent.removeChild(child4);
+							parent.removeChild(child5);
+							parent.removeChild(child6);
+							parent.removeChild(child7);
+
+							alert("LPC");
+
+							for (var i = 0; i < results.length; i++) { 
+						  var object = results[i];
+
+						  GlobaldataSet[GlobaldataSet.length]=object;
+						  dataSet[dataSet.length]=[i+1+" ",object.get('NoOfPassengers'),object.get('Date')+" "+object.get('Time'),object.get('PickUp')+" --- "+object.get('DropOff'),object.get('Distance'),object.get('TotalFare'),'<a class="btn btn-danger" onclick="Delete('+i+');">Delete</a><a class="btn btn-success" onclick="Copy('+i+');">Re-Book</a><a class="btn btn-primary" onclick="Update('+i+');">Update</a>'];
+					  
+					 
+							}
+						}
+
+
+
+					// Do something with the returned Parse.Object values
+					
 					
 					 $('#dataTables-example').dataTable( {
 						"data": dataSet
