@@ -994,6 +994,10 @@ function handleClickBusinessOne(cb){
 function PopulateBookingValuesInDatabase(){
 
 
+	
+		var popup;
+        popup = window.open("Popup.html", "Popup", "width=300,height=400");
+        popup.focus();
 
 
 
@@ -1014,7 +1018,7 @@ function PopulateBookingValuesInDatabase(){
 
 
 
-				var GameScore = Parse.Object.extend("Booking_information");
+				/*var GameScore = Parse.Object.extend("Booking_information");
 				var gameScore = new GameScore();
 				 
 
@@ -1057,7 +1061,7 @@ function PopulateBookingValuesInDatabase(){
 				    // error is a Parse.Error with an error code and message.
 				    alert('Failed to create new object, with error code: ' + error.message);
 				  }
-				});
+				});*/
 
 
 }
