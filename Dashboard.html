@@ -32,13 +32,6 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
 
-
-
-
-
-
-			
-
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.2.min.js"></script>
 	<!-- Custom CSS -->
@@ -61,18 +54,8 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+        <script type="text/javascript" src="dashBoard.js"></script>
 
-	
 	
 </head>
 <body>
@@ -85,8 +68,10 @@
 				 
             </div>
             <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
-
-                
+                    
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signin.html"><span class="glyphicon glyphicon-log-out"></span> Log-Out</a></li>
+                  </ul>
 
             </nav><!--/.navbar-collapse -->
         </div>
@@ -266,6 +251,52 @@
             <!-- /.row -->
             
             <!-- /.row -->
+                    <div class="panel-heading">
+                            Users Informations
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr id="parent">
+                                            <th>#</th>
+                                            <th id="AccountType">Account type</th>
+                                            <th id="userNameEmail">User-Name / Email</th>
+                                            <th id="mobileNumber">Mobile Number</th>
+                                            <th id="homeNumber">Home / Business Number</th>
+                                            <th>Operations</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div> 
+                            <!-- /.table-responsive -->
+                            <!--<table class="table table-striped table-hover ">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Order ID</th>
+                                  <th>Time/Date</th>
+                                  <th>Location</th>
+                                  <th>Payment</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                               
+                              </tbody>
+                            </table> -->
+                            
+                            
+                            
+                            
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
         </div>
             <!-- /.row -->
             
