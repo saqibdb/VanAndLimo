@@ -28,12 +28,14 @@ window.onload = function(){
 				
 				
 }
+
 $(document).ready(function(){
 		
 				
 					Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
  //					Parse.User.logOut();
  					var currentUser = Parse.User.current();
+
 					
 					if (currentUser) {
 						
@@ -50,6 +52,11 @@ $(document).ready(function(){
 				query.find({
 				  success: function(results) {
 					alert("Successfully retrieved " + results.length + " Users.");
+
+ 					Counts("Bookings");
+ 					Counts("Feedbacks");
+ 					Counts("Booking_information");
+
 
 
 
@@ -71,7 +78,31 @@ $(document).ready(function(){
 					alert("Error: " + error.code + " " + error.message);
 				  }
 				});
+						
+
+
+
+
+
+
+
 						});
+function Counts(table) {
+				var Bookings = Parse.Object.extend(table);
+				var query = new Parse.Query(Bookings);
+				query.find({
+				  success: function(results) {
+					var Label = document.getElementById(table+"CountLablel");
+					Label.innerHTML = results.length + "";
+
+				  },
+				  error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				  }
+				});
+			
+
+}
 function Delete(parameter1) {
 	
 	alert(" "+GlobaldataSet[parameter1].id+" ");
@@ -112,9 +143,10 @@ function Update(parameter1) {
 
 		GlobalObjectPosition=parameter1;
 		var popup;
-        popup = window.open("Popup-Calendar-Update.html", "Popup", "width=300,height=500");
+        popup = window.open("Popup-User-Update.html", "Popup", "width=500,height=700");
+			popup.document.getElementById("inputLastName").value = "wdwd";
         popup.focus();
-
+        
 
 
 
