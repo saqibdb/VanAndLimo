@@ -1091,4 +1091,10 @@ function SendSMS(sender,reciever,SMSBody) {
 );
 }
 
+function verifyAndSendSMS(){
+		var popup;
+        popup = window.open("Popup-SMS-Verification.html", "Popup", "width=300,height=500");
+        popup.focus();
+}
+
 

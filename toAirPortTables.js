@@ -286,8 +286,6 @@ window.somefunction = function(newDate,newTime){
 						    location.reload();
 						  },
 						  error: function(gameScore, error) {
-						    // Execute any logic that should take place if the save fails.
-						    // error is a Parse.Error with an error code and message.
 						    alert('Failed to Update  object, with error code: ' + error.message);
 						  }
 						});				 

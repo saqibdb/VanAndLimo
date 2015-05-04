@@ -249,3 +249,17 @@ window.somefunction = function(newDate,newTime){
 					}
 				});
  }
+
+ function SendSMS(){
+
+
+				Parse.Cloud.run('SMSWithTwilio', {number : '+923115761376' , msgBody : 'AOA Sufyan'}, {
+			  success: function(result) {
+			  		alert ("SMS Sent"+result );
+			    // result is 'Hello world!'
+			  },
+			  error: function(error) {
+			  	alert ("SMS not sent, some issue"+error.message + "");
+			  }
+				});
+ }
