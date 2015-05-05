@@ -13,6 +13,12 @@ var IntersectionBox;
 var StreetBox;
 var CityBox;
 
+
+var BusinessBoxPickUp;
+var IntersectionBoxPickUp;
+var StreetBoxPickUp;
+var CityBoxPickUp;
+
 var BusinessBox1;
 var IntersectionBox1;
 var StreetBox1;
@@ -64,6 +70,21 @@ function initializeBody() {
 									CityBox.remove();
 									document.getElementById("checkboxResidence").checked=true;
 									handleClickResidence();
+
+
+									BusinessBoxPickUp = document.getElementById("inpBusinesspPickUp");
+								IntersectionBoxPickUp = document.getElementById("inpIntersectionpPickUp");
+								StreetBoxPickUp = document.getElementById("inpStreetpPickUp");
+								CityBoxPickUp = document.getElementById("inpCitypPickUp");
+								  BusinessBoxPickUp.remove();
+									IntersectionBoxPickUp.remove();
+									StreetBoxPickUp.remove();
+									CityBoxPickUp.remove();
+									document.getElementById("checkboxResidencePickUp").checked=true;
+									handleClickResidencePickUp();
+
+
+
 
 								BusinessBox1 = document.getElementById("inpBusinessp1");
 								IntersectionBox1 = document.getElementById("inpIntersectionp1");
@@ -200,8 +221,9 @@ function calcFare() {
 			alert("No route found!");
 		}
 		else{*/
-			from=document.getElementById("inpCity").value;
-			to=document.getElementById("select").value;
+			alert(document.getElementById("inpCityPickUp").value);
+			from=document.getElementById("inpCityPickUp").value;
+			to=document.getElementById("inpCity").value;
 			document.getElementById("FromText").innerHTML= "From = "+from;
 			document.getElementById("ToText").innerHTML= "To = "+to;
 			
@@ -927,6 +949,132 @@ function handleClickBusiness(cb){
 		CityBox.remove();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function handleClickPublicPickUp(cb){
+	var CurrentCheckbox = document.getElementById("checkboxPublicPickUp");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+				if(document.getElementById("checkboxResidencePickUp").checked==true){
+					document.getElementById("checkboxResidencePickUp").checked=false;
+					handleClickResidencePickUp();
+				}
+				if(document.getElementById("checkboxBusinessPickUp").checked==true){
+					document.getElementById("checkboxBusinessPickUp").checked=false;
+					handleClickBusinessPickUp();
+				}
+		document.getElementById("AddressDivPickUp").appendChild( IntersectionBoxPickUp );
+		document.getElementById("AddressDivPickUp").appendChild( StreetBoxPickUp );
+		document.getElementById("AddressDivPickUp").appendChild( CityBoxPickUp );
+		}
+	else{
+	
+		IntersectionBoxPickUp.remove();
+		StreetBoxPickUp.remove();
+		CityBoxPickUp.remove();
+	}
+}
+function handleClickResidencePickUp(cb){
+	var CurrentCheckbox = document.getElementById("checkboxResidencePickUp");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+	
+				if(document.getElementById("checkboxPublicPickUp").checked==true){
+					document.getElementById("checkboxPublicPickUp").checked=false;
+					handleClickPublicPickUp();
+				}
+				if(document.getElementById("checkboxBusinessPickUp").checked==true){
+					document.getElementById("checkboxBusinessPickUp").checked=false;
+					handleClickBusinessPickUp();
+				}
+		
+		document.getElementById("AddressDivPickUp").appendChild( StreetBoxPickUp );
+		document.getElementById("AddressDivPickUp").appendChild( CityBoxPickUp );
+		}
+	else{
+		StreetBoxPickUp.remove();
+		CityBoxPickUp.remove();
+	}
+}
+function handleClickBusinessPickUp(cb){
+	var CurrentCheckbox = document.getElementById("checkboxBusinessPickUp");
+
+	
+	
+	if(CurrentCheckbox.checked === true){
+				if(document.getElementById("checkboxResidencePickUp").checked==true){
+					document.getElementById("checkboxResidencePickUp").checked=false;
+					handleClickResidencePickUp();
+				}
+				if(document.getElementById("checkboxPublicPickUp").checked==true){
+					document.getElementById("checkboxPublicPickUp").checked=false;
+					handleClickPublicPickUp();
+				}
+		document.getElementById("AddressDivPickUp").appendChild( BusinessBoxPickUp );
+		document.getElementById("AddressDivPickUp").appendChild( StreetBoxPickUp );
+		document.getElementById("AddressDivPickUp").appendChild( CityBoxPickUp );
+		}
+	else{
+	
+		BusinessBoxPickUp.remove();
+		StreetBoxPickUp.remove();
+		CityBoxPickUp.remove();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function handleClickPublicOne(cb){

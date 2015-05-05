@@ -72,13 +72,13 @@
 											<form role="form">
 												<fieldset>
 													<div class="form-group">
-														<input id="phonetxt" class="form-control" placeholder="Pnone Number" name="text" type="text" value="">
+														<input id="phonetxt" class="form-control" placeholder="Pnone Number (+14421100100)" name="text" type="text" value="">
 													</div>
 													<div class="form-group">
 													<a class="btn btn-lg btn-success btn-block" onclick="SendVerfification()">Send Verification Code</a>
 													</div>
 													<div class="form-group">
-														<input id="codetxt" class="form-control" placeholder="Verification Code" name="text" type="text" value="">
+														<input id="codetxt" class="form-control" placeholder="Verification Code (******)" name="text" type="text" value="">
 													</div>
 													<div class="form-group">
 													<a class="btn btn-lg btn-success btn-block" onclick="VerifyCode()">Submit Verification Code</a>
@@ -90,17 +90,29 @@
 
 
 	                                                        function SendVerfification() {
-	                                                        	var phNum= document.getElementById("phonetxt").value;
+	                                                        	if (document.getElementById("phonetxt").value == "") {
+	                                                        		alert("Please input a valid number");
+	                                                        	}
+	                                                        	else if(document.getElementById("phonetxt").readOnly == true){
+	                                                        		alert("Cannot send verification code again.");
+	                                                        	}
+	                                                        	else{
+	                                                        		var phNum= document.getElementById("phonetxt").value;
 	                                                        	Parse.Cloud.run('sendVerificationCode', {phoneNumber : phNum}, {
 																  success: function(result) {
+
 																  		alert ("SMS Sent"+result );
-																  		sendInfoSMS();
+																  		document.getElementById("phonetxt").readOnly = true;
+																  		
 																    // result is 'Hello world!'
 																  },
 																  error: function(error) {
 																  	alert ("SMS not sent "+error.message + "");
 																  }
 																	});
+	                                                        	}
+
+	                                                        	
                                                             /*if (window.opener != null && !window.opener.closed) {
                                                                 var txtCode = window.opener.document.getElementById("codetxt");
                                                                 var phName = window.opener.document.getElementById("PhoneNumberText");
@@ -110,16 +122,26 @@
                                                             window.close();*/
                                                         }
                                                        	function VerifyCode() {
-                                                       		var code= document.getElementById("codetxt").value;
+                                                       		if (document.getElementById("phonetxt").readOnly != true) {
+                                                       			alert("Please Input a valid number and Ask for verification code first.");
+                                                       		}
+                                                       		else{
+                                                       			var code= document.getElementById("codetxt").value;
 	                                                        	Parse.Cloud.run('verifyPhoneNumber', {phoneVerificationCode : code}, {
 																  success: function(result) {
-																  		alert ("SMS Sent"+result );
+																  		alert ("Code Verified"+result );
+																  		opener.sendUserAndAdminSMS(document.getElementById("phonetxt").value); 
+                                                          				  window.close();
 																    // result is 'Hello world!'
 																  },
 																  error: function(error) {
 																  	alert ("SMS not sent, some issue"+error.message + "");
 																  }
 																	});
+                                                       		}
+
+
+                                                       		
 
                                                        	}
                                                        	function sendInfoSMS() {

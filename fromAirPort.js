@@ -200,8 +200,8 @@ function calcFare() {
 			alert("No route found!");
 		}
 		else{*/
-			from=document.getElementById("inpCity").value;
-			to=document.getElementById("select").value;
+			from=document.getElementById("select").value;
+			to=document.getElementById("inpCity").value;
 			document.getElementById("FromText").innerHTML= "From = "+from;
 			document.getElementById("ToText").innerHTML= "To = "+to;
 			
