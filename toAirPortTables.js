@@ -50,7 +50,6 @@ $(document).ready(function(){
 				query.equalTo("ServiceType", "To AirPort");
 				query.find({
 				  success: function(results) {
-					alert("Successfully retrieved " + results.length + " Bookings.");
 
 
 
@@ -105,7 +104,6 @@ $(document).ready(function(){
 							parent.removeChild(child6);
 							parent.removeChild(child7);
 
-							alert("LPC");
 
 							for (var i = 0; i < results.length; i++) { 
 						  var object = results[i];
@@ -143,7 +141,6 @@ $(document).ready(function(){
 						});
 function Delete(parameter1) {
 	
-	alert(" "+GlobaldataSet[parameter1].id+" ");
 
 
 	var Bookings = Parse.Object.extend("Booking_information");
@@ -157,7 +154,6 @@ function Delete(parameter1) {
 					  var object = results[0];
 					  object.destroy({
 					  success: function(myObject) {
-					  	alert("Successfully Deleted booking with id : " + myObject.id );
 					  	location.reload();
 					    // The object was deleted from the Parse Cloud.
 					  },
@@ -238,7 +234,6 @@ window.somefunction = function(newDate,newTime){
 						newobject.save(null, {
 						  success: function(gameScore) {
 						    // Execute any logic that should take place after the object is saved.
-						    alert('New object created with objectId: ' + gameScore.id);
 						    location.reload();
 						  },
 						  error: function(gameScore, error) {
@@ -261,7 +256,6 @@ window.somefunction = function(newDate,newTime){
 
  }
  window.somefunctionUpdate = function(newDate,newTime){
- 	 alert("results");
 		var Bookings = Parse.Object.extend("Booking_information");
 				var query = new Parse.Query(Bookings);
 				query.equalTo("objectId", GlobaldataSet[GlobalObjectPosition].id);
@@ -282,7 +276,6 @@ window.somefunction = function(newDate,newTime){
 						newobject.save(null, {
 						  success: function(gameScore) {
 						    // Execute any logic that should take place after the object is saved.
-						    alert('Object Updated with objectId: ' + gameScore.id);
 						    location.reload();
 						  },
 						  error: function(gameScore, error) {

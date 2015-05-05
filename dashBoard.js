@@ -51,7 +51,6 @@ $(document).ready(function(){
 				var query = new Parse.Query(Bookings);
 				query.find({
 				  success: function(results) {
-					alert("Successfully retrieved " + results.length + " Users.");
 
  					Counts("Bookings");
  					Counts("Feedbacks");
@@ -105,7 +104,6 @@ function Counts(table) {
 }
 function Delete(parameter1) {
 	
-	alert(" "+GlobaldataSet[parameter1].id+" ");
 
 
 	var Bookings = Parse.Object.extend("User");
@@ -119,7 +117,6 @@ function Delete(parameter1) {
 					  var object = results[0];
 					  object.destroy({
 					  success: function(myObject) {
-					  	alert("Successfully Deleted User with id : " + myObject.id );
 					  	location.reload();
 					    // The object was deleted from the Parse Cloud.
 					  },
@@ -193,7 +190,6 @@ window.somefunction = function(newDate,newTime){
 						newobject.save(null, {
 						  success: function(gameScore) {
 						    // Execute any logic that should take place after the object is saved.
-						    alert('New object created with objectId: ' + gameScore.id);
 						    location.reload();
 						  },
 						  error: function(gameScore, error) {
@@ -216,7 +212,6 @@ window.somefunction = function(newDate,newTime){
 
  }
  window.somefunctionUpdate = function(newDate,newTime){
- 	 alert("results");
 		var Bookings = Parse.Object.extend("Booking_information");
 				var query = new Parse.Query(Bookings);
 				query.equalTo("objectId", GlobaldataSet[GlobalObjectPosition].id);
@@ -237,7 +232,6 @@ window.somefunction = function(newDate,newTime){
 						newobject.save(null, {
 						  success: function(gameScore) {
 						    // Execute any logic that should take place after the object is saved.
-						    alert('Object Updated with objectId: ' + gameScore.id);
 						    location.reload();
 						  },
 						  error: function(gameScore, error) {
@@ -255,7 +249,6 @@ window.somefunction = function(newDate,newTime){
 
 				Parse.Cloud.run('SMSWithTwilio', {number : '+923115761376' , msgBody : 'AOA Sufyan'}, {
 			  success: function(result) {
-			  		alert ("SMS Sent"+result );
 			    // result is 'Hello world!'
 			  },
 			  error: function(error) {

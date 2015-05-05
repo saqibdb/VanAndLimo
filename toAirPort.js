@@ -723,43 +723,36 @@ function calcFare() {
 											if(selectedCar=="Hybrid"){
 													 fareTotal=TotalEstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ExecutiveSedan"){
 												 fareTotal=TotalEstimatedFareExecutiveSedan;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ExecutiveSUV"){
 												 fareTotal=TotalEstimatedFareExecutiveSUV;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="ClubVan"){
 												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="MercedesVan"){
 												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="MiniVan"){
 												 fareTotal=TotalEstimatedFareMiniVan;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											else if(selectedCar=="Limo"){
 												 fareTotal=EstimatedFareHybrid;
 													fareTotal=(fareTotal).toFixed(2);
-													alert(fareTotal);
 													document.getElementById("FareText").innerHTML= "Fare = "+fareTotal+" $";
 											}
 											totalF=fareTotal;
@@ -1086,7 +1079,6 @@ function SendSMS(sender,reciever,SMSBody) {
 
 	var client = require('twilio')('AC76f95222a9de951390ccefb3ced761bf', '97b5cd9416864bce70a36ddccbda5a29');
 	//var client = require('twilio')(accountSid, authToken); 
-	alert("err");
 // Send an SMS message
 			client.sendSms({
 			    to: reciever, 

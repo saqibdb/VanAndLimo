@@ -46,7 +46,6 @@ $(document).ready(function(){
 				query.equalTo("UserID", currentUser.id);
 				query.find({
 				  success: function(results) {
-					alert("Successfully retrieved " + results.length + " Bookings.");
 					// Do something with the returned Parse.Object values
 					for (var i = 0; i < results.length; i++) { 
 					  var object = results[i];
@@ -64,14 +63,5 @@ $(document).ready(function(){
 					alert("Error: " + error.code + " " + error.message);
 				  }
 				});
-				
-		
-
-
-
-				 
-				
-				 
-				//alert("sdscs");
 						});
 						

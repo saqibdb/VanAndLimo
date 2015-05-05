@@ -50,14 +50,12 @@ function LoginCheck(){
 				var username=document.getElementById("usernametxt").value;
 				var password=document.getElementById("passwordtxt").value;
 
-alert(password);
 				Parse.User.logIn(username, password, {
 				  success: function(user) {
 					if(user.get("emailVerified")==false){
 						alert("The Email for "+username+" was not verified. Please Verify Email to Login");
 					}
 					else{
-						alert("Hooray! Let "+user.get("HomeNumber")+" use");// Do stuff after successful login.
 						
 						var currentUser = Parse.User.current();
 						window.location.href = 'Dashboard.html';
@@ -140,7 +138,6 @@ function SignUp(){
 					user.signUp(null, {
 						  success: function(user) {
 							// Hooray! Let them use the app now.
-							alert("Hooray! Let them use the app now");
 							document.getElementById("EmailProceedingTxt").innerHTML= "Check your Email and validate to proceed.";
 							window.location.href = 'EmailCheckRedirect.html';
 
@@ -159,7 +156,6 @@ function SignUp(){
 
 }
 function haha(){
-alert("hahahah");
 }
 function radioClick(){
 
