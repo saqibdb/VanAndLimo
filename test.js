@@ -35,7 +35,7 @@ $(document).ready(function(){
     
 				/**///Sign up
 					
-					
+					$("#my-comment").EasyComment();
 		radioClick();			
 				
 		

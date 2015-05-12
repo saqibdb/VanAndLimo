@@ -12,6 +12,8 @@ var HasError=1;
 var GlobaldataSet = [];
 var GlobalObjectPosition=-1;
 
+var userType ;
+
 
 function initializeBody() {
 
@@ -38,7 +40,47 @@ $(document).ready(function(){
 
 					
 					if (currentUser) {
-						
+						if (currentUser.get("isAdmin") == "Yes") {
+								alert("Admin is loggen in");
+								userType = "Admin";
+								var dataSet = [];
+								var Bookings = Parse.Object.extend("User");
+								var query = new Parse.Query(Bookings);
+								query.find({
+								  success: function(results) {
+
+				 					Counts("Bookings");
+				 					Counts("Feedbacks");
+				 					Counts("Booking_information");
+
+
+
+
+
+										  for (var i = 0; i < results.length; i++) { 
+											  var object = results[i];
+											  
+											  GlobaldataSet[GlobaldataSet.length]=object;
+											  dataSet[dataSet.length]=[i+1+" ",object.get('accountType'),object.get('email'),object.get('MobileNumber'),object.get('HomeNumber'),'<a class="btn btn-danger" onclick="Delete('+i+');">Remove</a><a class="btn btn-primary" onclick="Update('+i+');">Update</a>'];
+									  
+									 
+											}		
+									 $('#dataTables-example').dataTable( {
+										"data": dataSet
+								
+										} );  
+								  },
+								  error: function(error) {
+									alert("Error: " + error.code + " " + error.message);
+								  }
+								});
+						}
+						else{
+							alert("User is logged in");
+							userType = "notAdmin";
+							var element = document.getElementById("usersTable");
+							element.parentNode.removeChild(element);
+						}
 						// do stuff with the user
 						
 					} else {
@@ -46,37 +88,7 @@ $(document).ready(function(){
 						window.location.href = 'signin.html';
 					}
 				
-				var dataSet = [];
-				var Bookings = Parse.Object.extend("User");
-				var query = new Parse.Query(Bookings);
-				query.find({
-				  success: function(results) {
-
- 					Counts("Bookings");
- 					Counts("Feedbacks");
- 					Counts("Booking_information");
-
-
-
-
-
-						  for (var i = 0; i < results.length; i++) { 
-							  var object = results[i];
-							  
-							  GlobaldataSet[GlobaldataSet.length]=object;
-							  dataSet[dataSet.length]=[i+1+" ",object.get('accountType'),object.get('email'),object.get('MobileNumber'),object.get('HomeNumber'),'<a class="btn btn-danger" onclick="Delete('+i+');">Remove</a><a class="btn btn-primary" onclick="Update('+i+');">Update</a>'];
-					  
-					 
-							}		
-					 $('#dataTables-example').dataTable( {
-						"data": dataSet
 				
-						} );  
-				  },
-				  error: function(error) {
-					alert("Error: " + error.code + " " + error.message);
-				  }
-				});
 						
 
 

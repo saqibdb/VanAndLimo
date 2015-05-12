@@ -47,6 +47,27 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+    <script type="text/javascript" 
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" 
+            src="./easy-comment/jquery.easy-comment.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function(){
+    // Your other javascript code if any
+
+    $("#id_of_your_comment_container").EasyComment({
+      path:"easy-comment", //Change it to the folder where you put the easycomment files
+      moderate:false,
+      maxReply:5
+    });
+    // Your other javascript code if any
+    });
+    </script>
+
 </head>
 <body>
 <!--[if lte IE 8]>
@@ -127,7 +148,11 @@
         </section>
 
 			
-			
+			<!-- begin htmlcommentbox.com -->
+    <div id="id_of_your_comment_container" style="width:1024px;height:800px;"></div>
+
+    <!-- Begin Comments JavaScript Code --><script type="text/javascript" async>function ajaxpath_554fb780c3946(url){return window.location.href == '' ? url : url.replace('&s=','&s=' + escape(window.location.href));}(function(){document.write('<div id="fcs_div_554fb780c3946"><a title="FeedBAcks from Clients" href="http://www.freecommentscript.com">&nbsp;&nbsp;<b>Free HTML User Comments</b>...</a></div>');fcs_554fb780c3946=document.createElement('script');fcs_554fb780c3946.type="text/javascript";fcs_554fb780c3946.src=ajaxpath_554fb780c3946((document.location.protocol=="https:"?"https:":"http:")+"//www.freecommentscript.com/GetComments2.php?p=554fb780c3946&s=&Size=10#!554fb780c3946");setTimeout("document.getElementById('fcs_div_554fb780c3946').appendChild(fcs_554fb780c3946)",1);})();</script><noscript><div><a href="http://www.freecommentscript.com" title="free html user comment box">Free Comment Script</a></div></noscript><!-- End Comments JavaScript Code -->
+<!-- end htmlcommentbox.com -->
 			
 			
        <footer>

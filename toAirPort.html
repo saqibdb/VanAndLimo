@@ -96,8 +96,10 @@
             <nav class="navbar-collapse collapse bs-js-navbar-scrollspy">
 					
                   <ul class="nav navbar-nav navbar-right">
-					<li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li id = "signupBtn"><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li id = "signinBtn"><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li id = "signoutBtn"><a href="signin.html"><span class="glyphicon glyphicon-log-out"></span> Log-Out</a></li>
+
 				  </ul>
 
             </nav><!--/.navbar-collapse -->
@@ -533,7 +535,7 @@
 						
 						
 					
-				<p class="pull-left"><a class="btn btn-primary" onclick="PopulateBookingValuesInDatabase();">Book it</a></p>
+				<p class="pull-left"><a class="btn btn-primary" onclick="makeUserLogin();">Book it</a></p>
                         
                         <p class="pull-right"><a id="textEstimateBtn" class="btn btn-primary" onclick="verifyAndSendSMS();">Text Estimate</a></p>
 

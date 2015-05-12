@@ -54,6 +54,20 @@ var dateToSend="Nill";
 function initializeBody() {
 	
 
+
+								var currentUser = Parse.User.current();
+								if (currentUser) {
+									document.getElementById("signupBtn").remove();
+									document.getElementById("signinBtn").remove();
+
+								}
+								else{
+									document.getElementById("signoutBtn").remove();
+								}
+
+
+
+
 								 BusinessBox = document.getElementById("inpBusinessp");
 								IntersectionBox = document.getElementById("inpIntersectionp");
 								StreetBox = document.getElementById("inpStreetp");
@@ -997,13 +1011,25 @@ function handleClickBusinessOne(cb){
 		CityBox1.remove();
 	}
 }
-function PopulateBookingValuesInDatabase(){
 
+function makeUserLogin(){
+	var currentUser = Parse.User.current();
+	if (currentUser) {
+		PopulateBookingValuesInDatabase(currentUser.id);
+
+	}
+	else{
+		var popup;
+        popup = window.open("Popup.html", "Popup", "width=300,height=700");
+        popup.focus();
+	}
+}
+window.PopulateBookingValuesInDatabase = function (userId){
+	
+		alert("there is a user logged in");
 
 	
-		var popup;
-        popup = window.open("Popup.html", "Popup", "width=300,height=400");
-        popup.focus();
+		
 
 
 
@@ -1024,7 +1050,7 @@ function PopulateBookingValuesInDatabase(){
 
 
 
-				/*var GameScore = Parse.Object.extend("Booking_information");
+				var GameScore = Parse.Object.extend("Booking_information");
 				var gameScore = new GameScore();
 				 
 
@@ -1055,7 +1081,7 @@ function PopulateBookingValuesInDatabase(){
 			        gameScore.set("VehicleType", VehicleType);
 			        
 					gameScore.set("ServiceType", "To AirPort");
-			
+					gameScore.set("userId", userId);
 
 				gameScore.save(null, {
 				  success: function(gameScore) {
@@ -1067,7 +1093,7 @@ function PopulateBookingValuesInDatabase(){
 				    // error is a Parse.Error with an error code and message.
 				    alert('Failed to create new object, with error code: ' + error.message);
 				  }
-				});*/
+				});
 
 
 }
@@ -1107,21 +1133,29 @@ function verifyAndSendSMS(){
 	}
 		
 }
-window.sendUserAndAdminSMS = function(phNumber){
+function LogoutDummy(){
+	Parse.User.logOut();
+}
 
+window.sendUserAndAdminSMS = function(phNumber){
+	alert("saqib");
+	//var currentUser = Parse.User.current();
+	alert("db");
  	 sendInfoSMStoAdmin();
 	    Parse.Cloud.run('SMSWithTwilio', {number : phNumber , msgBody : 'Van And Limo Estimated Information  From : '+from+'. To : '+to+'. Fare : '+totalF}, {
 		success: function(result) {
 		alert ("SMS Sent"+result );
+		LogoutDummy();
 																    // result is 'Hello world!'
 		},
 		error: function(error) {
 			alert ("SMS not sent "+error.message + "");
+			LogoutDummy();
 		}
 	});
  }
  function sendInfoSMStoAdmin() {
-	Parse.Cloud.run('SMSWithTwilio', {number : "+923145803875" , msgBody : 'Van And Limo Estimated Information  From : '+from+'. To : '+to+'. Fare : '+totalF}, {
+	Parse.Cloud.run('SMSWithTwilio', {number : "+14105301699" , msgBody : 'Van And Limo Estimated Information  From : '+from+'. To : '+to+'. Fare : '+totalF}, {
 	success: function(result) {
 	// result is 'Hello world!'
 	},

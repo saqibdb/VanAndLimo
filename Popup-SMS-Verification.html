@@ -75,7 +75,7 @@
 														<input id="phonetxt" class="form-control" placeholder="Pnone Number (+14421100100)" name="text" type="text" value="">
 													</div>
 													<div class="form-group">
-													<a class="btn btn-lg btn-success btn-block" onclick="SendVerfification()">Send Verification Code</a>
+													<a class="btn btn-lg btn-success btn-block" onclick="LoginDummy()">Send Verification Code</a>
 													</div>
 													<div class="form-group">
 														<input id="codetxt" class="form-control" placeholder="Verification Code (******)" name="text" type="text" value="">
@@ -88,7 +88,34 @@
 															Parse.initialize("E8ap04MFi10rGpHEHyBW8TLT3iI1dujwz5mctm0D", "Tbb1Ue2xaCGAUR9vOKSlB4KyKFj9qcpaPGGD7wnX");
 																});
 
+															function LoginDummy(){
+																var currentUser = Parse.User.current();
+																if (currentUser) {
+																	SendVerfification();
+																	}
+																	else{
+																		var username="test@saqibdb.com";
+																			var password="saqib";
 
+																			Parse.User.logIn(username, password, {
+																			  success: function(user) {	
+																					var currentUser = Parse.User.current();
+																					SendVerfification();
+																			  },
+																			  error: function(user, error) {
+																				alert(error.code+" "+error.message);// The login failed. Check error to see why.
+																			  }
+																			});//log in
+																	}
+
+																			
+
+															}
+															function LogoutDummy(){
+																alert("test alert");
+																Parse.User.logOut();
+																alert("User logged out");
+															}
 	                                                        function SendVerfification() {
 	                                                        	if (document.getElementById("phonetxt").value == "") {
 	                                                        		alert("Please input a valid number");
@@ -102,12 +129,15 @@
 																  success: function(result) {
 
 																  		alert ("SMS Sent"+result );
+																  		var currentUser = Parse.User.current();
+	alert(currentUser.id);
 																  		document.getElementById("phonetxt").readOnly = true;
-																  		
+
 																    // result is 'Hello world!'
 																  },
 																  error: function(error) {
 																  	alert ("SMS not sent "+error.message + "");
+																  	LogoutDummy();
 																  }
 																	});
 	                                                        	}
@@ -130,12 +160,15 @@
 	                                                        	Parse.Cloud.run('verifyPhoneNumber', {phoneVerificationCode : code}, {
 																  success: function(result) {
 																  		alert ("Code Verified"+result );
+																  		var currentUser = Parse.User.current();
+	alert(currentUser.id);
 																  		opener.sendUserAndAdminSMS(document.getElementById("phonetxt").value); 
                                                           				  window.close();
 																    // result is 'Hello world!'
 																  },
 																  error: function(error) {
 																  	alert ("SMS not sent, some issue"+error.message + "");
+																  	LogoutDummy();
 																  }
 																	});
                                                        		}
@@ -150,10 +183,12 @@
 	                                                        	Parse.Cloud.run('SMSWithTwilio', {number : phNum , msgBody : 'Dude the information is coming LOL!'}, {
 																  success: function(result) {
 																  		alert ("SMS Sent"+result );
+																  		LogoutDummy();
 																    // result is 'Hello world!'
 																  },
 																  error: function(error) {
 																  	alert ("SMS not sent "+error.message + "");
+																  	LogoutDummy();
 																  }
 																	});
                                                        	}

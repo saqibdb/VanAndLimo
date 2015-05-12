@@ -58,7 +58,12 @@ function LoginCheck(){
 					else{
 						
 						var currentUser = Parse.User.current();
-						window.location.href = 'Dashboard.html';
+						if (currentUser.get("isAdmin") == "Yes") {
+							window.location.href = 'Dashboard.html';
+						}
+						else{
+							window.location.href = 'DashboardUser.html';
+						}
 					}
 					
 				  },
